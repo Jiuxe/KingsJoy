@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://pke6o0qfw54b"]
+
+[ext_resource type="PackedScene" uid="uid://dijar5jhly1ui" path="res://scenes/gameplay/character_controllers/Toni.tscn" id="1_2lab0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
+size = Vector2(1151, 101)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.490196, 0.337255, 0.309804, 1)
+polygon = PackedVector2Array(0, 667, 0, 570, 1152, 570, 1152, 668)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(578.5, 620.5)
+shape = SubResource("RectangleShape2D_smw2l")
+
+[node name="Toni" parent="." instance=ExtResource("1_2lab0")]
+position = Vector2(554, 520)
+scale = Vector2(0.5, 0.5)
