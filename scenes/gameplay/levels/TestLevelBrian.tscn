@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl1gsyrb1so8q"]
+[gd_scene load_steps=4 format=3 uid="uid://bl1gsyrb1so8q"]
 
 [ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
-[ext_resource type="Script" path="res://scenes/gameplay/levels/CharacterBody2D.gd" id="2_xg50j"]
+[ext_resource type="PackedScene" uid="uid://b254b0h72jfy0" path="res://scenes/gameplay/ball/ball.tscn" id="2_ktbfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o7is4"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -25,9 +23,4 @@ position = Vector2(562, 479)
 scale = Vector2(0.5, 0.5)
 angle = 75.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(346, 40)
-script = ExtResource("2_xg50j")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_o7is4")
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_ktbfw")]
