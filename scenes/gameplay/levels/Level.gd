@@ -26,7 +26,6 @@ func _on_ball_fall_area_body_entered(body):
 		await get_tree().create_timer(ball_despawn_time).timeout
 		body.queue_free()
 
-
 func _on_ball_despawn_body_entered(body):
 	if body is Ball:
 		body.queue_free()

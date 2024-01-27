@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl1gsyrb1so8q"]
+[gd_scene load_steps=11 format=3 uid="uid://bl1gsyrb1so8q"]
 
 [ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_pbfou"]
+[ext_resource type="Texture2D" uid="uid://coxl86nbfxamd" path="res://assets/sprites/escenario_1.png" id="2_36156"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="3_lmkir"]
 [ext_resource type="PackedScene" uid="uid://ci00xt65tor7i" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="4_ri8d6"]
 [ext_resource type="PackedScene" uid="uid://4w8827crhsb0" path="res://scenes/gameplay/hud.tscn" id="5_b2fh7"]
+[ext_resource type="Texture2D" uid="uid://bisjlfjsg3wdi" path="res://assets/sprites/cortina_1.png" id="7_7gk40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)
@@ -20,9 +22,9 @@ script = ExtResource("1_pbfou")
 joy_speed = 1.0
 ball_fall_penalty = 40.0
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.490196, 0.337255, 0.309804, 1)
-polygon = PackedVector2Array(0, 667, 0, 570, 1152, 570, 1152, 668)
+[node name="SpriteBack" type="Sprite2D" parent="."]
+texture = ExtResource("2_36156")
+centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -64,10 +66,16 @@ position = Vector2(-20, 0)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BallDespawn"]
 position = Vector2(1243, 184.5)
 shape = SubResource("RectangleShape2D_8prvx")
+debug_color = Color(0, 0.701961, 0.254902, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallDespawn"]
 position = Vector2(-40, 184.5)
 shape = SubResource("RectangleShape2D_8prvx")
+debug_color = Color(0, 0.701961, 0.254902, 0.419608)
+
+[node name="SpriteFront" type="Sprite2D" parent="."]
+texture = ExtResource("7_7gk40")
+centered = false
 
 [connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
 [connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]

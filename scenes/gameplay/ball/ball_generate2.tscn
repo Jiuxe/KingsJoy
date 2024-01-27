@@ -6,6 +6,7 @@
 script = ExtResource("1_j25ra")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [node name="Marca_1" type="Marker2D" parent="."]

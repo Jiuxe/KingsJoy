@@ -17,6 +17,5 @@ func activate():
 		monitoring = false
 
 func _on_body_entered(body: PhysicsBody2D):
-	print("ball?")
 	if "jump" in body:
-		body.jump(orientation * deg_to_rad(player.normalized_angle * 45))
+		body.jump(orientation * abs(deg_to_rad(player.normalized_angle * 45)))
