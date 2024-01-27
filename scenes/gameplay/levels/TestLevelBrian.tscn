@@ -1,18 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl1gsyrb1so8q"]
+[gd_scene load_steps=6 format=3 uid="uid://bl1gsyrb1so8q"]
 
 [ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
-[ext_resource type="PackedScene" uid="uid://b254b0h72jfy0" path="res://scenes/gameplay/ball/ball.tscn" id="2_ktbfw"]
+[ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_pbfou"]
+[ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="3_lmkir"]
+[ext_resource type="PackedScene" uid="uid://bu0najh3ngo8e" path="res://scenes/gameplay/ball/ball_generate.tscn" id="4_5r565"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)
 
 [node name="TestLevel" type="Node2D"]
+script = ExtResource("1_pbfou")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.490196, 0.337255, 0.309804, 1)
 polygon = PackedVector2Array(0, 667, 0, 570, 1152, 570, 1152, 668)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(578.5, 620.5)
@@ -23,4 +28,9 @@ position = Vector2(562, 479)
 scale = Vector2(0.5, 0.5)
 angle = 75.0
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_ktbfw")]
+[node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_lmkir")
+player = NodePath("../Toni")
+
+[node name="BallGenerate" parent="." instance=ExtResource("4_5r565")]
+position = Vector2(38, -222)

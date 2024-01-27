@@ -75,6 +75,11 @@ debug_quit_game={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="balls"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

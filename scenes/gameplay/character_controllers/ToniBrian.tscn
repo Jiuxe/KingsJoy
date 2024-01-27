@@ -31,48 +31,59 @@ polygon = PackedVector2Array(-42, -44, 34, -45, 70, -6, 70, 58, 36, 106, -36, 10
 
 [node name="Body" type="Node2D" parent="Root"]
 
-[node name="Polygon2D" type="Polygon2D" parent="Root/Body"]
-position = Vector2(3, -97.875)
+[node name="Top" type="Node2D" parent="Root/Body"]
+position = Vector2(0, -202)
+scale = Vector2(1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Root/Body/Top"]
+position = Vector2(3, 104.125)
+scale = Vector2(1, 1)
 polygon = PackedVector2Array(-92, -250, 98, -250, 6, -97)
 
-[node name="Polygon2D2" type="Polygon2D" parent="Root/Body"]
-position = Vector2(3, -97.875)
-polygon = PackedVector2Array(-36, -104, 75, -106, 5, -53)
-
-[node name="RArm1" type="Line2D" parent="Root/Body"]
-position = Vector2(93, -341)
+[node name="RArm1" type="Line2D" parent="Root/Body/Top"]
+position = Vector2(93, -139)
+scale = Vector2(1, 1)
 points = PackedVector2Array(-1, 2, 169, 5)
 
-[node name="RArm2" type="Line2D" parent="Root/Body/RArm1"]
+[node name="RArm2" type="Line2D" parent="Root/Body/Top/RArm1"]
 position = Vector2(167, 3)
 points = PackedVector2Array(-1, 3, 159, 5)
 
-[node name="RHand" type="Polygon2D" parent="Root/Body/RArm1/RArm2"]
+[node name="RHand" type="Polygon2D" parent="Root/Body/Top/RArm1/RArm2"]
 position = Vector2(159, 5)
 polygon = PackedVector2Array(-1, -5, 23, -36, 71, -22, 79, 16, 39, 26, 0, 13)
 
-[node name="LArm1" type="Line2D" parent="Root/Body"]
-position = Vector2(-82, -346)
+[node name="LArm1" type="Line2D" parent="Root/Body/Top"]
+position = Vector2(-82, -144)
+scale = Vector2(1, 1)
 points = PackedVector2Array(-1, 2, -169, 0)
 
-[node name="LArm2" type="Line2D" parent="Root/Body/LArm1"]
+[node name="LArm2" type="Line2D" parent="Root/Body/Top/LArm1"]
 position = Vector2(-170, -3)
 points = PackedVector2Array(-1, 3, -159, 0)
 
-[node name="LHand" type="Polygon2D" parent="Root/Body/LArm1/LArm2"]
+[node name="LHand" type="Polygon2D" parent="Root/Body/Top/LArm1/LArm2"]
 position = Vector2(-232, -1)
 polygon = PackedVector2Array(-1, -5, 23, -36, 71, -22, 79, 16, 39, 26, 0, 13)
 
-[node name="Neck" type="Node2D" parent="Root/Body"]
-position = Vector2(0, -346)
+[node name="Neck" type="Node2D" parent="Root/Body/Top"]
+position = Vector2(4.29153e-06, -144)
+scale = Vector2(1, 1)
 
-[node name="Head" type="Sprite2D" parent="Root/Body/Neck"]
+[node name="Head" type="Sprite2D" parent="Root/Body/Top/Neck"]
 position = Vector2(3, -78)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_y72nq")
 
+[node name="Polygon2D2" type="Polygon2D" parent="Root/Body"]
+position = Vector2(3, -97.875)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-36, -104, 75, -106, 5, -53)
+
 [node name="LArmCollider" type="Area2D" parent="Root"]
 position = Vector2(-263, -427)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("3_b007e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/LArmCollider"]
@@ -80,6 +91,8 @@ shape = SubResource("RectangleShape2D_d1ppk")
 
 [node name="RArmCollider" type="Area2D" parent="Root"]
 position = Vector2(263, -427)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("3_b007e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/RArmCollider"]
