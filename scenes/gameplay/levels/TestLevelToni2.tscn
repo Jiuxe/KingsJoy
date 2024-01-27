@@ -89,6 +89,8 @@ shape = SubResource("RectangleShape2D_smw2l")
 [node name="Toni" parent="." instance=ExtResource("3_csj56")]
 position = Vector2(562, 544)
 scale = Vector2(0.3, 0.3)
+movement_speed = 700.0
+max_angle = 55.0
 angle = 3.0
 fall_factor = 90.0
 death_angle = 80.0

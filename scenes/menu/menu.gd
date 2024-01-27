@@ -16,7 +16,7 @@ func _on_PlayButton_pressed() -> void:
 	var params = {
 		"player_name": player_name.text
 	}
-	Game.change_scene_to_file("res://scenes/gameplay/levels/TestLevelBrian.tscn", params)
+	Game.change_scene_to_file("res://scenes/gameplay/levels/TestLevelToni2.tscn", params)
 
 
 func _on_ExitButton_pressed() -> void:
