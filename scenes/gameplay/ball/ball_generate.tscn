@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn1aulcdq75np"]
+[gd_scene load_steps=2 format=3 uid="uid://bu0najh3ngo8e"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/ball/ball_generate.gd" id="1_ui4lc"]
 
