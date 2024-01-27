@@ -70,29 +70,31 @@ position = Vector2(3, -78)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_y72nq")
 
+[node name="LArmCollider" type="Area2D" parent="Root/Body/Top" node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
+position = Vector2(-263, -225)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_b007e")
+player = NodePath("../../../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Body/Top/LArmCollider"]
+shape = SubResource("RectangleShape2D_d1ppk")
+
+[node name="RArmCollider" type="Area2D" parent="Root/Body/Top" node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
+position = Vector2(263, -225)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_b007e")
+player = NodePath("../../../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Body/Top/RArmCollider"]
+shape = SubResource("RectangleShape2D_d1ppk")
+
 [node name="Polygon2D2" type="Polygon2D" parent="Root/Body"]
 position = Vector2(3, -97.875)
 polygon = PackedVector2Array(-36, -104, 75, -106, 5, -53)
-
-[node name="LArmCollider" type="Area2D" parent="Root" node_paths=PackedStringArray("player")]
-position = Vector2(-263, -427)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("3_b007e")
-player = NodePath("../..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/LArmCollider"]
-shape = SubResource("RectangleShape2D_d1ppk")
-
-[node name="RArmCollider" type="Area2D" parent="Root" node_paths=PackedStringArray("player")]
-position = Vector2(263, -427)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("3_b007e")
-player = NodePath("../..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/RArmCollider"]
-shape = SubResource("RectangleShape2D_d1ppk")
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("3_vuisg")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_pbfou"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="3_lmkir"]
-[ext_resource type="PackedScene" uid="uid://bu0najh3ngo8e" path="res://scenes/gameplay/ball/ball_generate.tscn" id="4_5r565"]
+[ext_resource type="PackedScene" uid="uid://ci00xt65tor7i" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="4_ri8d6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)
@@ -24,13 +24,13 @@ position = Vector2(578.5, 620.5)
 shape = SubResource("RectangleShape2D_smw2l")
 
 [node name="Toni" parent="." instance=ExtResource("1_6krs1")]
-position = Vector2(562, 479)
-scale = Vector2(0.5, 0.5)
-angle = 75.0
+position = Vector2(562, 542)
+scale = Vector2(0.25, 0.25)
+fall_factor = 90.0
 
 [node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_lmkir")
 player = NodePath("../Toni")
 
-[node name="BallGenerate" parent="." instance=ExtResource("4_5r565")]
-position = Vector2(38, -222)
+[node name="BallGenerate" parent="." instance=ExtResource("4_ri8d6")]
+position = Vector2(47, -21)

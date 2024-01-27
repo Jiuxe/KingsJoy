@@ -9,7 +9,7 @@ var bending_l:= false
 var bending_r:= false
 
 var is_ready = false
-var rotation_speed = 80
+var rotation_speed = 150
 
 func _physics_process(delta):
 	if not is_ready:
@@ -54,8 +54,6 @@ func balance_movement(delta):
 	else:
 		r_arm.rotation_degrees = lerp(r_arm.rotation_degrees, 0.0, 0.8)
 		bending_r = false
-	
-	control_arm(r_arm, "ui_right", true)
 
 	var h_input = 0
 	if bending_l:
