@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://6tve156e62qq"]
 
-[ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_m0p4d"]
+[ext_resource type="Script" path="res://scenes/menu/end_game.gd" id="1_f84cr"]
 [ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="2_pwgn7"]
 [ext_resource type="Script" path="res://scenes/menu/game_version.gd" id="3_s0l6a"]
 [ext_resource type="Script" path="res://scenes/menu/godot_version.gd" id="4_jiofe"]
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_m0p4d")
+script = ExtResource("1_f84cr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -42,9 +42,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -14.0
+offset_top = -4.0
 offset_right = 300.0
-offset_bottom = 14.0
+offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -64,25 +64,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "SCORE"
 
-[node name="Linea_1" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_1"]
-visible = false
-layout_mode = 2
-
-[node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Linea_1/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-text = "JUGADOR"
-
-[node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Linea_1/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-text = "SCORE"
-
 [node name="Linea_2" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
-visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_2"]
@@ -91,7 +73,7 @@ layout_mode = 2
 [node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Linea_2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "JUGADOR"
+text = "JUGADOR 2"
 
 [node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Linea_2/HBoxContainer"]
 layout_mode = 2
@@ -99,7 +81,6 @@ size_flags_horizontal = 6
 text = "SCORE"
 
 [node name="Linea_3" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
-visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_3"]
@@ -108,7 +89,7 @@ layout_mode = 2
 [node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Linea_3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "JUGADOR"
+text = "JUGADOR 3"
 
 [node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Linea_3/HBoxContainer"]
 layout_mode = 2
@@ -192,7 +173,7 @@ custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
-text = "START"
+text = "RESTART"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
