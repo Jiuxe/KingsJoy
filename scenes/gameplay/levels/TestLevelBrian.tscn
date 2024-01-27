@@ -26,28 +26,24 @@ ball_fall_penalty = 40.0
 texture = ExtResource("2_36156")
 centered = false
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(578.5, 620.5)
 shape = SubResource("RectangleShape2D_smw2l")
 
 [node name="Toni" parent="." instance=ExtResource("1_6krs1")]
-position = Vector2(562, 479)
+position = Vector2(562, 544)
 scale = Vector2(0.3, 0.3)
 angle = 75.0
 fall_factor = 90.0
 death_angle = 80.0
 
-[node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("level", "player")]
-script = ExtResource("3_lmkir")
-level = NodePath("..")
-player = NodePath("../Toni")
-
-[node name="BallGenerate" parent="." instance=ExtResource("4_ri8d6")]
+[node name="BallGenerator" parent="." instance=ExtResource("4_ri8d6")]
 position = Vector2(47, -21)
+spawn_time = 5.0
 
 [node name="HUD" parent="." instance=ExtResource("5_b2fh7")]
 
@@ -76,6 +72,11 @@ debug_color = Color(0, 0.701961, 0.254902, 0.419608)
 [node name="SpriteFront" type="Sprite2D" parent="."]
 texture = ExtResource("7_7gk40")
 centered = false
+
+[node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("level", "player")]
+script = ExtResource("3_lmkir")
+level = NodePath("..")
+player = NodePath("../Toni")
 
 [connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
 [connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]

@@ -90,7 +90,9 @@ right_arm={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="balls"
+2d_physics/layer_2="ball_layer"
+2d_physics/layer_3="floor"
+2d_physics/layer_4="ball_mask"
 
 [physics]
 

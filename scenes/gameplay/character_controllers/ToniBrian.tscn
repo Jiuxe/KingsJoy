@@ -12,6 +12,8 @@ size = Vector2(150, 150)
 size = Vector2(618, 152)
 
 [node name="Toni" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_f2q6m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
