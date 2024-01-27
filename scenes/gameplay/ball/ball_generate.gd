@@ -3,9 +3,11 @@ extends Node2D
 var list_marker = []
 var ball = preload("res://scenes/gameplay/ball/ball.tscn")
 @onready var timer = $Timer
+@export var spawn_time: float = 10.0
 
 
 func _ready():
+	timer.wait_time = spawn_time
 	timer.timeout.connect(spawn_ball)
 	for marker in get_children():
 		if marker is Marker2D:
