@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://4w8827crhsb0"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/hud.gd" id="1_ihc4m"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ihc4m")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_right = 132.0
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 7
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JoyBar" type="ProgressBar" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 7
+size_flags_stretch_ratio = 3.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Spacer" type="Control" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7

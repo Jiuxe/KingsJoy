@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Ball
 
 @onready var collision_shape_2d = $CollisionShape2D
 const JUMP_VELOCITY = -800.0
