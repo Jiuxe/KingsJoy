@@ -1,6 +1,7 @@
 extends Area2D
 
 var execution_unix
+@export var player : CharacterBody2D
 
 func _ready():
 	monitoring = false
@@ -17,4 +18,4 @@ func activate():
 func _on_body_entered(body: PhysicsBody2D):
 	print("ball?")
 	if "jump" in body:
-		body.jump()
+		body.jump(player.root.rotation)

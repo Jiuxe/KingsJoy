@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bulf1f41mjkn3"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_qkka7"]
+[ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="2_spuxh"]
+[ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="3_mwwbg"]
+[ext_resource type="PackedScene" uid="uid://bu0najh3ngo8e" path="res://scenes/gameplay/ball/ball_generate.tscn" id="4_2p8m3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
+size = Vector2(1151, 101)
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_qkka7")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.490196, 0.337255, 0.309804, 1)
+polygon = PackedVector2Array(0, 667, 0, 570, 1152, 570, 1152, 668)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(578.5, 620.5)
+shape = SubResource("RectangleShape2D_smw2l")
+
+[node name="Toni" parent="." instance=ExtResource("2_spuxh")]
+position = Vector2(562, 479)
+scale = Vector2(0.25, 0.25)
+angle = 75.0
+fall_factor = 0.0
+max_fall_speed = 500.0
+fall_acceleration = 400.0
+
+[node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_mwwbg")
+player = NodePath("../Toni")
+
+[node name="BallGenerate" parent="." instance=ExtResource("4_2p8m3")]
+position = Vector2(38, -222)

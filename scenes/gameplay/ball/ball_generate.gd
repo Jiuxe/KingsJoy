@@ -31,3 +31,6 @@ func spawn_ball():
 	add_child(new_ball)
 	
 	new_ball.position = generate_in_marker.position
+	var rotation_rads = deg_to_rad(randi_range(-70, -45))
+	var throw_force = randf_range(0.5, 1.75)
+	new_ball.jump(rotation_rads, throw_force)

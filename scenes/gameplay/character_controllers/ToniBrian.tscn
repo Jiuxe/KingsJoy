@@ -33,16 +33,13 @@ polygon = PackedVector2Array(-42, -44, 34, -45, 70, -6, 70, 58, 36, 106, -36, 10
 
 [node name="Top" type="Node2D" parent="Root/Body"]
 position = Vector2(0, -202)
-scale = Vector2(1, 1)
 
 [node name="Polygon2D" type="Polygon2D" parent="Root/Body/Top"]
 position = Vector2(3, 104.125)
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-92, -250, 98, -250, 6, -97)
 
 [node name="RArm1" type="Line2D" parent="Root/Body/Top"]
 position = Vector2(93, -139)
-scale = Vector2(1, 1)
 points = PackedVector2Array(-1, 2, 169, 5)
 
 [node name="RArm2" type="Line2D" parent="Root/Body/Top/RArm1"]
@@ -55,7 +52,6 @@ polygon = PackedVector2Array(-1, -5, 23, -36, 71, -22, 79, 16, 39, 26, 0, 13)
 
 [node name="LArm1" type="Line2D" parent="Root/Body/Top"]
 position = Vector2(-82, -144)
-scale = Vector2(1, 1)
 points = PackedVector2Array(-1, 2, -169, 0)
 
 [node name="LArm2" type="Line2D" parent="Root/Body/Top/LArm1"]
@@ -68,7 +64,6 @@ polygon = PackedVector2Array(-1, -5, 23, -36, 71, -22, 79, 16, 39, 26, 0, 13)
 
 [node name="Neck" type="Node2D" parent="Root/Body/Top"]
 position = Vector2(4.29153e-06, -144)
-scale = Vector2(1, 1)
 
 [node name="Head" type="Sprite2D" parent="Root/Body/Top/Neck"]
 position = Vector2(3, -78)
@@ -77,23 +72,24 @@ texture = ExtResource("1_y72nq")
 
 [node name="Polygon2D2" type="Polygon2D" parent="Root/Body"]
 position = Vector2(3, -97.875)
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-36, -104, 75, -106, 5, -53)
 
-[node name="LArmCollider" type="Area2D" parent="Root"]
+[node name="LArmCollider" type="Area2D" parent="Root" node_paths=PackedStringArray("player")]
 position = Vector2(-263, -427)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_b007e")
+player = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/LArmCollider"]
 shape = SubResource("RectangleShape2D_d1ppk")
 
-[node name="RArmCollider" type="Area2D" parent="Root"]
+[node name="RArmCollider" type="Area2D" parent="Root" node_paths=PackedStringArray("player")]
 position = Vector2(263, -427)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_b007e")
+player = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/RArmCollider"]
 shape = SubResource("RectangleShape2D_d1ppk")

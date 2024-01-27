@@ -2,8 +2,8 @@ extends Node
 
 var actor: CharacterBody2D
 
-@onready var r_arm = $"../Root/Body/RArm1/RArm2"
-@onready var l_arm = $"../Root/Body/LArm1/LArm2"
+@onready var r_arm = $"../Root/Body/Top/RArm1/RArm2"
+@onready var l_arm = $"../Root/Body/Top/LArm1/LArm2"
 
 var bending_l:= false
 var bending_r:= false

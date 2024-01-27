@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci00xt65tor7i"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/ball/ball_generate.gd" id="1_j25ra"]
+
+[node name="BallGenerate" type="Node2D"]
+script = ExtResource("1_j25ra")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Marca_1" type="Marker2D" parent="."]
+position = Vector2(1065, 325)
+gizmo_extents = 100.0
