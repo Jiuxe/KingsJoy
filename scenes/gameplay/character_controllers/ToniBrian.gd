@@ -6,8 +6,8 @@ signal died
 @onready var top = $Root/Body/Top
 
 @onready var root = $Root
-@onready var l_arm_collider = $Root/LArmCollider
-@onready var r_arm_collider = $Root/RArmCollider
+@onready var l_arm_collider = %LArmCollider
+@onready var r_arm_collider = %RArmCollider
 
 var desired_velocity: Vector2
 @export var movement_speed:= 500.0
@@ -17,12 +17,12 @@ var desired_velocity: Vector2
 		if abs(angle) >= death_angle:
 			self.died.emit()
 
-@export var fall_factor:= 300.0
+@export var fall_factor:= 200.0
 
 @export var max_fall_speed := 1000.0
 @export var fall_acceleration := 800.0
 @export var jump_strength:= 500.0
-@export var death_angle := 80
+@export var death_angle := 85.0
 
 var normalized_angle = null:
 	get:
@@ -44,6 +44,7 @@ func _physics_process(delta):
 func process_angle(delta):
 	angle += fall_factor * normalized_angle * delta
 	root.rotation_degrees = angle
+	top.rotation_degrees = -angle * 0.7
 
 func apply_gravity(delta):
 	if velocity.y >= max_fall_speed:

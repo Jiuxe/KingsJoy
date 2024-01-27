@@ -9,7 +9,7 @@ var bending_l:= false
 var bending_r:= false
 
 var is_ready = false
-var rotation_speed = 80
+var rotation_speed = 150
 
 func _physics_process(delta):
 	if not is_ready:

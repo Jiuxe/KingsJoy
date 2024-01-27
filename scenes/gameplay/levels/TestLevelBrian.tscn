@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_pbfou"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="3_lmkir"]
-[ext_resource type="PackedScene" uid="uid://bu0najh3ngo8e" path="res://scenes/gameplay/ball/ball_generate.tscn" id="4_5r565"]
+[ext_resource type="PackedScene" uid="uid://ci00xt65tor7i" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="4_ri8d6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)
@@ -34,5 +34,5 @@ death_angle = 50
 script = ExtResource("3_lmkir")
 player = NodePath("../Toni")
 
-[node name="BallGenerate" parent="." instance=ExtResource("4_5r565")]
-position = Vector2(38, -222)
+[node name="BallGenerate" parent="." instance=ExtResource("4_ri8d6")]
+position = Vector2(47, -21)
