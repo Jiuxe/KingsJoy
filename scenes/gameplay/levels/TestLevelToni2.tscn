@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cp0rk0t8lw4sh"]
+[gd_scene load_steps=19 format=3 uid="uid://gr4tvf43ye8q"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_5vw3v"]
 [ext_resource type="Texture2D" uid="uid://cxbqgytr8f58q" path="res://assets/sprites/cortina_2.png" id="2_bwj0h"]
@@ -89,7 +89,7 @@ shape = SubResource("RectangleShape2D_smw2l")
 [node name="Toni" parent="." instance=ExtResource("3_csj56")]
 position = Vector2(562, 544)
 scale = Vector2(0.3, 0.3)
-angle = 75.0
+angle = 3.0
 fall_factor = 90.0
 death_angle = 80.0
 

@@ -34,7 +34,6 @@ var normalized_angle = null:
 func _ready():
 	input_controller.actor = self
 	input_controller.is_ready = true
-	angle = 0
 
 func _physics_process(delta):
 	process_angle(delta)

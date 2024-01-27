@@ -5,6 +5,8 @@ var actor: CharacterBody2D
 @onready var r_arm = $"../Root/Body/Top/RArm1/RArm2"
 @onready var l_arm = $"../Root/Body/Top/LArm1/LArm2"
 
+var arm_rotation := 125.0
+
 var bending_l:= false
 var bending_r:= false
 
@@ -36,14 +38,14 @@ func normal_movement(delta):
 
 func balance_movement(delta):
 	if Input.is_action_pressed("left_arm"):
-		l_arm.rotation_degrees = lerp(l_arm.rotation_degrees, 140.0, 0.9)
+		l_arm.rotation_degrees = lerp(l_arm.rotation_degrees, arm_rotation, 0.8)
 		bending_l = true
 	else:
-		l_arm.rotation_degrees = lerp(l_arm.rotation_degrees, 0.0, 0.9)
+		l_arm.rotation_degrees = lerp(l_arm.rotation_degrees, 0.0, 0.8)
 		bending_l = false
 	
 	if Input.is_action_pressed("right_arm"):
-		r_arm.rotation_degrees = lerp(r_arm.rotation_degrees, -140.0, 0.8)
+		r_arm.rotation_degrees = lerp(r_arm.rotation_degrees, -arm_rotation, 0.8)
 		bending_r = true
 	else:
 		r_arm.rotation_degrees = lerp(r_arm.rotation_degrees, 0.0, 0.8)
