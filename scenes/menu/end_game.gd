@@ -32,7 +32,7 @@ func save_ranking(ranking):
 	
 	for player in ranking:
 		print(file)
-		file.store_string(str(player))
+		# file.store_string(str(player))
 	
 
 func verify_save_directory():
