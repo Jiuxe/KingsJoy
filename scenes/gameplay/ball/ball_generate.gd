@@ -6,31 +6,19 @@ var ball = preload("res://scenes/gameplay/ball/ball.tscn")
 
 
 func _ready():
-	
 	timer.timeout.connect(spawn_ball)
-	
 	for marker in get_children():
 		if marker is Marker2D:
 			list_marker.append(marker)
-			
-	print(list_marker)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta): 
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		spawn_ball()
-		
 
 
 func spawn_ball():
-	
 	var generate_in_marker = list_marker[randi_range(0,list_marker.size()-1)]
 	var new_ball = ball.instantiate()
 	add_child(new_ball)
+	new_ball.color = Color(randf_range(0,1), randf_range(0,1), randf_range(0,1))
 	
-	new_ball.position = generate_in_marker.position
+	new_ball.global_position = generate_in_marker.global_position
 	var rotation_rads = deg_to_rad(randi_range(-70, -45))
 	var throw_force = randf_range(0.5, 1.75)
 	new_ball.jump(rotation_rads, throw_force)

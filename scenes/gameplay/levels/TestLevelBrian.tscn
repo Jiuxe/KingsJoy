@@ -26,7 +26,6 @@ shape = SubResource("RectangleShape2D_smw2l")
 [node name="Toni" parent="." instance=ExtResource("1_6krs1")]
 position = Vector2(562, 542)
 scale = Vector2(0.25, 0.25)
-fall_factor = 90.0
 
 [node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_lmkir")
