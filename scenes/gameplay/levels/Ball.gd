@@ -22,5 +22,5 @@ func _physics_process(delta):
 func _draw():
 	draw_circle(Vector2.ZERO, collision_shape_2d.shape.radius, color)
 
-func jump(arm_rotation: float, force_multiplier:= 1.0):
+func jump(arm_rotation: float, force_multiplier:= 0.8):
 	self.velocity = Vector2(0, JUMP_VELOCITY*force_multiplier).rotated(arm_rotation)

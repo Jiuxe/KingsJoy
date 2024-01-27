@@ -92,6 +92,10 @@ right_arm={
 2d_physics/layer_1="player"
 2d_physics/layer_2="balls"
 
+[physics]
+
+2d/default_gravity=700.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
