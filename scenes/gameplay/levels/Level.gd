@@ -15,12 +15,17 @@ var joy: float = 50.0:
 		joy = max(value, 0)
 		if joy == 0 and can_lose:
 			sadness.emit()
+			
+@export var player_name: String
 
 func _physics_process(delta):
 	joy += joy_speed * delta
 
 func _process(delta):
 	time_alive += delta
+
+func pre_start(params):
+	player_name = params.player_name
 
 func _on_ball_fall_area_body_entered(body):
 	if body is Ball:

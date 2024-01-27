@@ -6,4 +6,13 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#player.died.connect(Game.restart_scene)
-	level.sadness.connect(Game.restart_scene)
+	level.sadness.connect(end_game)
+
+func end_game():
+	
+	var params = {
+		"player_name": level.player_name,
+		"time_alive": level.time_alive
+	}
+	
+	Game.change_scene_to_file("res://scenes/menu/end_game.tscn", params)
