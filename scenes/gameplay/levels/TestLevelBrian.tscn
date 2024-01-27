@@ -17,7 +17,7 @@ size = Vector2(1173, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8prvx"]
 size = Vector2(100, 979)
 
-[node name="TestLevel" type="Node2D"]
+[node name="TestLevel2" type="Node2D"]
 script = ExtResource("1_pbfou")
 joy_speed = 1.0
 ball_fall_penalty = 40.0
@@ -43,7 +43,6 @@ death_angle = 80.0
 
 [node name="BallGenerator" parent="." instance=ExtResource("4_ri8d6")]
 position = Vector2(47, -21)
-spawn_time = 5.0
 
 [node name="HUD" parent="." instance=ExtResource("5_b2fh7")]
 

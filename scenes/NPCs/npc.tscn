@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://w6bulnr80f6j"]
+
+[ext_resource type="Script" path="res://scenes/NPCs/npc.gd" id="2_432tw"]
+
+[sub_resource type="Animation" id="Animation_yii3s"]
+resource_name = "animacion_npc"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(553, 314), Vector2(541, 299), Vector2(537, 291), Vector2(543, 303), Vector2(550, 313), Vector2(566, 300), Vector2(573, 292), Vector2(573, 292), Vector2(553, 314)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.139626, 0.0, 0.139626, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16.779, -187.674), Vector2(16.8216, -169.121), Vector2(17.1352, -161.022), Vector2(15.8678, -176.714), Vector2(16.779, -187.674)]
+}
+
+[sub_resource type="Animation" id="Animation_awpsw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(553, 314)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16.779, -187.674)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jie5c"]
+_data = {
+"RESET": SubResource("Animation_awpsw"),
+"animacion_npc": SubResource("Animation_yii3s")
+}
+
+[node name="ReyNoBoca" type="Sprite2D"]
+position = Vector2(553, 314)
+scale = Vector2(0.291796, 0.260834)
+script = ExtResource("2_432tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16.779, -187.674)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jie5c")
+}

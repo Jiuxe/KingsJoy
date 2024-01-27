@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=3 uid="uid://cp0rk0t8lw4sh"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_5vw3v"]
+[ext_resource type="Texture2D" uid="uid://cxbqgytr8f58q" path="res://assets/sprites/cortina_2.png" id="2_bwj0h"]
+[ext_resource type="Texture2D" uid="uid://dfhxqfw2fs0is" path="res://assets/sprites/fondo_terciopelo.png" id="2_h2v5r"]
+[ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="3_csj56"]
+[ext_resource type="Texture2D" uid="uid://d35nbuhm0m34k" path="res://assets/sprites/cortina_3.png" id="4_ejhi2"]
+[ext_resource type="Texture2D" uid="uid://3bcu6qb8ic5l" path="res://assets/sprites/rey_boca.png" id="4_k5ou1"]
+[ext_resource type="PackedScene" uid="uid://w6bulnr80f6j" path="res://scenes/NPCs/npc.tscn" id="4_rcf31"]
+[ext_resource type="PackedScene" uid="uid://ci00xt65tor7i" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="4_uh06v"]
+[ext_resource type="Texture2D" uid="uid://7eeqagvk7yxw" path="res://assets/sprites/suelo.png" id="5_20adg"]
+[ext_resource type="PackedScene" uid="uid://4w8827crhsb0" path="res://scenes/gameplay/hud.tscn" id="5_fuj6k"]
+[ext_resource type="Texture2D" uid="uid://bisjlfjsg3wdi" path="res://assets/sprites/cortina_1.png" id="6_2mkri"]
+[ext_resource type="Texture2D" uid="uid://hfyth2elrxws" path="res://assets/sprites/rey_no_boca.png" id="6_v3dmm"]
+[ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="7_2wjmk"]
+[ext_resource type="Texture2D" uid="uid://36c31vok1e6d" path="res://assets/sprites/rubia_no_boca.png" id="8_phogk"]
+[ext_resource type="Texture2D" uid="uid://c5fop5bgldp5o" path="res://assets/sprites/rubia_boca.png" id="9_ndnrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
+size = Vector2(1151, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm3lu"]
+size = Vector2(1173, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8prvx"]
+size = Vector2(100, 979)
+
+[node name="TestLevel2" type="Node2D"]
+script = ExtResource("1_5vw3v")
+joy_speed = 1.0
+ball_fall_penalty = 40.0
+
+[node name="FondoTerciopelo" type="Sprite2D" parent="."]
+position = Vector2(543, 289)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_h2v5r")
+
+[node name="Cortina2" type="Sprite2D" parent="."]
+position = Vector2(560, 38)
+texture = ExtResource("2_bwj0h")
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Node2D3" type="Node2D" parent="NPCs"]
+position = Vector2(842, -131)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="ReyNoBoca" parent="NPCs/Node2D3" instance=ExtResource("4_rcf31")]
+scale = Vector2(0.231, 0.206)
+texture = ExtResource("8_phogk")
+mouth_sprite = ExtResource("9_ndnrw")
+
+[node name="Cortina4" type="Sprite2D" parent="NPCs"]
+position = Vector2(549, 241)
+texture = ExtResource("4_ejhi2")
+
+[node name="Node2D2" type="Node2D" parent="NPCs"]
+position = Vector2(8, 0)
+
+[node name="ReyNoBoca" parent="NPCs/Node2D2" instance=ExtResource("4_rcf31")]
+texture = ExtResource("6_v3dmm")
+mouth_sprite = ExtResource("4_k5ou1")
+
+[node name="Node2D" type="Node2D" parent="NPCs"]
+position = Vector2(186, 40)
+
+[node name="ReyNoBoca2" parent="NPCs/Node2D" instance=ExtResource("4_rcf31")]
+scale = Vector2(0.23538, 0.205998)
+texture = ExtResource("8_phogk")
+mouth_sprite = ExtResource("9_ndnrw")
+
+[node name="Suelo" type="Sprite2D" parent="."]
+position = Vector2(558, 415)
+texture = ExtResource("5_20adg")
+
+[node name="Cortina3" type="Sprite2D" parent="."]
+position = Vector2(566, 435)
+texture = ExtResource("2_bwj0h")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(578.5, 620.5)
+shape = SubResource("RectangleShape2D_smw2l")
+
+[node name="Toni" parent="." instance=ExtResource("3_csj56")]
+position = Vector2(562, 544)
+scale = Vector2(0.3, 0.3)
+angle = 75.0
+fall_factor = 90.0
+death_angle = 80.0
+
+[node name="BallGenerator" parent="." instance=ExtResource("4_uh06v")]
+position = Vector2(47, -21)
+
+[node name="HUD" parent="." instance=ExtResource("5_fuj6k")]
+
+[node name="BallFallArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallFallArea"]
+position = Vector2(576.5, 566)
+shape = SubResource("RectangleShape2D_mm3lu")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="BallDespawn" type="Area2D" parent="."]
+position = Vector2(-20, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BallDespawn"]
+position = Vector2(1243, 184.5)
+shape = SubResource("RectangleShape2D_8prvx")
+debug_color = Color(0, 0.701961, 0.254902, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDespawn"]
+position = Vector2(-40, 184.5)
+shape = SubResource("RectangleShape2D_8prvx")
+debug_color = Color(0, 0.701961, 0.254902, 0.419608)
+
+[node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("level", "player")]
+script = ExtResource("7_2wjmk")
+level = NodePath("..")
+player = NodePath("../Toni")
+
+[node name="SpriteFront" type="Sprite2D" parent="."]
+texture = ExtResource("6_2mkri")
+centered = false
+
+[connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
+[connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]
