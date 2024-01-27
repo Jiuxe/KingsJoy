@@ -9,9 +9,11 @@
 size = Vector2(150, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ppk"]
-size = Vector2(524, 147)
+size = Vector2(618, 152)
 
 [node name="Toni" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_f2q6m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -79,6 +81,7 @@ script = ExtResource("3_b007e")
 player = NodePath("../../../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Body/Top/LArmCollider"]
+position = Vector2(46, 100)
 shape = SubResource("RectangleShape2D_d1ppk")
 
 [node name="RArmCollider" type="Area2D" parent="Root/Body/Top" node_paths=PackedStringArray("player")]
@@ -88,9 +91,12 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_b007e")
 player = NodePath("../../../..")
+orientation = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Body/Top/RArmCollider"]
+position = Vector2(-38, 101)
 shape = SubResource("RectangleShape2D_d1ppk")
+one_way_collision_margin = 0.0
 
 [node name="Polygon2D2" type="Polygon2D" parent="Root/Body"]
 position = Vector2(3, -97.875)

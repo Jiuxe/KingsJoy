@@ -11,9 +11,10 @@ signal died
 
 var desired_velocity: Vector2
 @export var movement_speed:= 500.0
+@export var max_angle := 90.0
 @export var angle: float = 0.0:
 	set(value):
-		angle = clamp(value, -90, 90)
+		angle = clamp(value, -max_angle, max_angle)
 		if abs(angle) >= death_angle:
 			self.died.emit()
 

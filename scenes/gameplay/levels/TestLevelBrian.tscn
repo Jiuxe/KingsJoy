@@ -1,38 +1,82 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl1gsyrb1so8q"]
+[gd_scene load_steps=11 format=3 uid="uid://bl1gsyrb1so8q"]
 
 [ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_pbfou"]
+[ext_resource type="Texture2D" uid="uid://coxl86nbfxamd" path="res://assets/sprites/escenario_1.png" id="2_36156"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="3_lmkir"]
 [ext_resource type="PackedScene" uid="uid://ci00xt65tor7i" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="4_ri8d6"]
+[ext_resource type="PackedScene" uid="uid://4w8827crhsb0" path="res://scenes/gameplay/hud.tscn" id="5_b2fh7"]
+[ext_resource type="Texture2D" uid="uid://bisjlfjsg3wdi" path="res://assets/sprites/cortina_1.png" id="7_7gk40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm3lu"]
+size = Vector2(1173, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8prvx"]
+size = Vector2(100, 979)
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_pbfou")
+joy_speed = 1.0
+ball_fall_penalty = 40.0
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.490196, 0.337255, 0.309804, 1)
-polygon = PackedVector2Array(0, 667, 0, 570, 1152, 570, 1152, 668)
+[node name="SpriteBack" type="Sprite2D" parent="."]
+texture = ExtResource("2_36156")
+centered = false
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(578.5, 620.5)
 shape = SubResource("RectangleShape2D_smw2l")
 
 [node name="Toni" parent="." instance=ExtResource("1_6krs1")]
-position = Vector2(562, 479)
-scale = Vector2(0.5, 0.5)
+position = Vector2(562, 544)
+scale = Vector2(0.3, 0.3)
 angle = 75.0
 fall_factor = 90.0
-death_angle = 50
+death_angle = 80.0
 
-[node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("player")]
+[node name="BallGenerator" parent="." instance=ExtResource("4_ri8d6")]
+position = Vector2(47, -21)
+spawn_time = 5.0
+
+[node name="HUD" parent="." instance=ExtResource("5_b2fh7")]
+
+[node name="BallFallArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallFallArea"]
+position = Vector2(576.5, 566)
+shape = SubResource("RectangleShape2D_mm3lu")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="BallDespawn" type="Area2D" parent="."]
+position = Vector2(-20, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BallDespawn"]
+position = Vector2(1243, 184.5)
+shape = SubResource("RectangleShape2D_8prvx")
+debug_color = Color(0, 0.701961, 0.254902, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallDespawn"]
+position = Vector2(-40, 184.5)
+shape = SubResource("RectangleShape2D_8prvx")
+debug_color = Color(0, 0.701961, 0.254902, 0.419608)
+
+[node name="SpriteFront" type="Sprite2D" parent="."]
+texture = ExtResource("7_7gk40")
+centered = false
+
+[node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("level", "player")]
 script = ExtResource("3_lmkir")
+level = NodePath("..")
 player = NodePath("../Toni")
 
-[node name="BallGenerate" parent="." instance=ExtResource("4_ri8d6")]
-position = Vector2(47, -21)
+[connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
+[connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]

@@ -2,6 +2,7 @@ extends Area2D
 
 var execution_unix
 @export var player : CharacterBody2D
+@export var orientation: int = 1
 
 func _ready():
 	monitoring = false
@@ -16,6 +17,5 @@ func activate():
 		monitoring = false
 
 func _on_body_entered(body: PhysicsBody2D):
-	print("ball?")
 	if "jump" in body:
-		body.jump(player.root.rotation)
+		body.jump(orientation * abs(deg_to_rad(player.normalized_angle * 45)))
