@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://pke6o0qfw54b"]
+
+[ext_resource type="Texture2D" uid="uid://coxl86nbfxamd" path="res://assets/sprites/escenario_1.png" id="1_4b14p"]
+[ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="2_aky2k"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="3_cearf"]
+[ext_resource type="Texture2D" uid="uid://bisjlfjsg3wdi" path="res://assets/sprites/cortina_1.png" id="4_nbge8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
+size = Vector2(1151, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lq3k4"]
+size = Vector2(226.5, 668)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4b14p")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(578.5, 620.5)
+shape = SubResource("RectangleShape2D_smw2l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1071, 335)
+shape = SubResource("RectangleShape2D_lq3k4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(99.75, 286)
+shape = SubResource("RectangleShape2D_lq3k4")
+
+[node name="Toni" parent="." instance=ExtResource("2_aky2k")]
+position = Vector2(566, 536)
+scale = Vector2(0.3, 0.3)
+fall_factor = 90.0
+
+[node name="BallGenerate" parent="." instance=ExtResource("3_cearf")]
+position = Vector2(156, -7)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("4_nbge8")
+centered = false
