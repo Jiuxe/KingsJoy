@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.176471, 0.682353, 0.647059, 1)
+color = Color(0.694118, 0.588235, 0.25098, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -45,12 +45,23 @@ offset_bottom = -339.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="MarginContainer/Control/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 60
-text = "Godot Game Template"
+text = "King JOY"
 uppercase = true
+
+[node name="player_name" type="LineEdit" parent="MarginContainer/Control/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Anonymous"
+alignment = 1
+max_length = 20
+expand_to_text_length = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
@@ -82,6 +93,7 @@ focus_previous = NodePath("../PlayButton")
 text = "EXIT"
 
 [node name="Version" type="VBoxContainer" parent="MarginContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -104,6 +116,7 @@ text = "<GodotVersion>"
 script = ExtResource("5_fdyjp")
 
 [node name="Credits" type="VBoxContainer" parent="MarginContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

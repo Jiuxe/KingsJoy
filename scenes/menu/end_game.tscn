@@ -1,0 +1,267 @@
+[gd_scene load_steps=5 format=3 uid="uid://6tve156e62qq"]
+
+[ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_m0p4d"]
+[ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="2_pwgn7"]
+[ext_resource type="Script" path="res://scenes/menu/game_version.gd" id="3_s0l6a"]
+[ext_resource type="Script" path="res://scenes/menu/godot_version.gd" id="4_jiofe"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m0p4d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.580392, 0.607843, 0.592157, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Ranking" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -14.0
+offset_right = 300.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cabecera" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Cabecera"]
+layout_mode = 2
+
+[node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Cabecera/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "JUGADOR"
+
+[node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Cabecera/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "SCORE"
+
+[node name="Linea_1" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_1"]
+visible = false
+layout_mode = 2
+
+[node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Linea_1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "JUGADOR"
+
+[node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Linea_1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "SCORE"
+
+[node name="Linea_2" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_2"]
+layout_mode = 2
+
+[node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Linea_2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "JUGADOR"
+
+[node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Linea_2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "SCORE"
+
+[node name="Linea_3" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_3"]
+layout_mode = 2
+
+[node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Linea_3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "JUGADOR"
+
+[node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Linea_3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "SCORE"
+
+[node name="Game over" type="CenterContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = -8.0
+offset_bottom = -339.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MarginContainer/Control/Game over"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pwgn7")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER
+"
+uppercase = true
+
+[node name="Subtitle" type="CenterContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 155.0
+offset_top = 99.0
+offset_right = 155.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+
+[node name="Title" type="Label" parent="MarginContainer/Control/Subtitle"]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pwgn7")
+theme_override_font_sizes/font_size = 60
+text = "The king is sad
+"
+uppercase = true
+
+[node name="Subtitle_2" type="CenterContainer" parent="MarginContainer/Control"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 426.0
+offset_top = 211.0
+offset_right = 912.0
+offset_bottom = 294.0
+scale = Vector2(0.45, 0.45)
+
+[node name="Title" type="Label" parent="MarginContainer/Control/Subtitle_2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pwgn7")
+theme_override_font_sizes/font_size = 60
+text = "You are DEAD"
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 131.0
+offset_right = 94.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="PlayButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+text = "START"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_previous = NodePath("../PlayButton")
+text = "EXIT"
+
+[node name="Version" type="VBoxContainer" parent="MarginContainer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 122.0
+grow_vertical = 0
+
+[node name="GameVersion" type="Label" parent="MarginContainer/Control/Version"]
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+text = "<x.y.z>"
+script = ExtResource("3_s0l6a")
+
+[node name="GodotVersion" type="Label" parent="MarginContainer/Control/Version"]
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+text = "<GodotVersion>"
+script = ExtResource("4_jiofe")
+
+[node name="Credits" type="VBoxContainer" parent="MarginContainer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MadeByLabel" type="Label" parent="MarginContainer/Control/Credits"]
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "made by: ..."
+
+[node name="Developer1" type="Label" parent="MarginContainer/Control/Credits"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+
+[node name="Developer2" type="Label" parent="MarginContainer/Control/Credits"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
+text = "Developer 2"
+
+[node name="Developer3" type="Label" parent="MarginContainer/Control/Credits"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
+theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
+text = "Developer 3"
+
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
