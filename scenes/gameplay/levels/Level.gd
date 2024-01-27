@@ -7,11 +7,13 @@ signal sadness
 @export var ball_despawn_time:= 1.2
 @export var ball_fall_penalty = 20.0
 
+@export var can_lose:= true
+
 var time_alive: float = 0.0
 var joy: float = 50.0:
 	set(value):
 		joy = max(value, 0)
-		if joy == 0:
+		if joy == 0 and can_lose:
 			sadness.emit()
 
 func _physics_process(delta):
