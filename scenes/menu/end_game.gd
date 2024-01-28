@@ -1,8 +1,10 @@
 extends Control
+@onready var play_button = $MarginContainer/Control/VBoxContainer/PlayButton
 
 var ranking = []
 
 func _ready():
+	play_button.grab_focus()
 	pass
 	
 func pre_start(params):
