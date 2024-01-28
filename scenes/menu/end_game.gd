@@ -11,9 +11,9 @@ func pre_start(params):
 	
 	load_ranking()
 	
-	ranking.append({"score": str(int(params.time_alive)), "player_name":params.player_name})
-	ranking.sort_custom(func(a, b): return a.score > b.score)
-	print(ranking)
+	ranking.append({"player_name":params.player_name, "score": str(int(params.time_alive))})
+	ranking.sort_custom(func(a, b): return int(a.score) > int(b.score))
+
 	if ranking.size() > 3:
 		ranking.pop_back()
 	
