@@ -15,8 +15,11 @@ var joy: float = 50.0:
 		joy = max(value, 0)
 		if joy == 0 and can_lose:
 			sadness.emit()
-			
+
 @export var player_name: String
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
 	joy += joy_speed * delta

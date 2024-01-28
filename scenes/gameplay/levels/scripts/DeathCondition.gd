@@ -9,7 +9,7 @@ func _ready():
 	level.sadness.connect(end_game)
 
 func end_game():
-	
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	var params = {
 		"player_name": level.player_name,
 		"time_alive": level.time_alive
