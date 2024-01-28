@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://gr4tvf43ye8q"]
+[gd_scene load_steps=25 format=3 uid="uid://gr4tvf43ye8q"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_5vw3v"]
+[ext_resource type="AudioStream" uid="uid://j66y6wpkkyqa" path="res://assets/music/oooh.mp3" id="2_4mihm"]
 [ext_resource type="Texture2D" uid="uid://cxbqgytr8f58q" path="res://assets/sprites/cortina_2.png" id="2_bwj0h"]
 [ext_resource type="Texture2D" uid="uid://dfhxqfw2fs0is" path="res://assets/sprites/fondo_terciopelo.png" id="2_h2v5r"]
 [ext_resource type="PackedScene" uid="uid://b14qok1b78khx" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="3_csj56"]
@@ -36,6 +37,9 @@ size = Vector2(236, 675)
 script = ExtResource("1_5vw3v")
 joy_speed = 1.0
 ball_fall_penalty = 40.0
+
+[node name="Sad" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4mihm")
 
 [node name="FondoTerciopelo" type="Sprite2D" parent="."]
 position = Vector2(543, 289)
@@ -207,4 +211,5 @@ autoplay = true
 attenuation = 2.07053
 
 [connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
+[connection signal="body_entered" from="BallFallArea" to="." method="sad"]
 [connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]
