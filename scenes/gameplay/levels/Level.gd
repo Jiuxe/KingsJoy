@@ -28,7 +28,10 @@ func _process(delta):
 	time_alive += delta
 
 func pre_start(params):
-	player_name = params.player_name
+	if "player_name" in params:
+		player_name = params.player_name
+	else:
+		player_name = "Anonymous"
 
 func _on_ball_fall_area_body_entered(body):
 	if body is Ball:

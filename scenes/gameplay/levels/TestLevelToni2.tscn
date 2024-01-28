@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://gr4tvf43ye8q"]
+[gd_scene load_steps=20 format=3 uid="uid://gr4tvf43ye8q"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_5vw3v"]
 [ext_resource type="Texture2D" uid="uid://cxbqgytr8f58q" path="res://assets/sprites/cortina_2.png" id="2_bwj0h"]
@@ -24,6 +24,9 @@ size = Vector2(1173, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8prvx"]
 size = Vector2(100, 979)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbxnd"]
+size = Vector2(236, 675)
 
 [node name="TestLevel2" type="Node2D"]
 script = ExtResource("1_5vw3v")
@@ -89,11 +92,17 @@ shape = SubResource("RectangleShape2D_smw2l")
 [node name="Toni" parent="." instance=ExtResource("3_csj56")]
 position = Vector2(562, 544)
 scale = Vector2(0.3, 0.3)
+collision_layer = 1
+collision_mask = 5
 movement_speed = 700.0
 max_angle = 55.0
 angle = 3.0
 fall_factor = 90.0
 death_angle = 80.0
+
+[node name="SpriteFront" type="Sprite2D" parent="."]
+texture = ExtResource("6_2mkri")
+centered = false
 
 [node name="BallGenerator" parent="." instance=ExtResource("4_uh06v")]
 position = Vector2(47, -21)
@@ -122,14 +131,22 @@ position = Vector2(-40, 184.5)
 shape = SubResource("RectangleShape2D_8prvx")
 debug_color = Color(0, 0.701961, 0.254902, 0.419608)
 
+[node name="PlayerWalls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerWalls"]
+position = Vector2(79, 327.5)
+shape = SubResource("RectangleShape2D_qbxnd")
+debug_color = Color(0.636866, 0.524435, 0.122672, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerWalls"]
+position = Vector2(1096, 327.5)
+shape = SubResource("RectangleShape2D_qbxnd")
+debug_color = Color(0.636866, 0.524435, 0.122672, 0.42)
+
 [node name="DeathCondition" type="Node" parent="." node_paths=PackedStringArray("level", "player")]
 script = ExtResource("7_2wjmk")
 level = NodePath("..")
 player = NodePath("../Toni")
-
-[node name="SpriteFront" type="Sprite2D" parent="."]
-texture = ExtResource("6_2mkri")
-centered = false
 
 [connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
 [connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]
