@@ -19,6 +19,7 @@ var joy: float = 50.0:
 @export var player_name: String
 
 func _ready():
+	call_deferred("init_animations")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
@@ -44,3 +45,9 @@ func _on_ball_fall_area_body_entered(body):
 func _on_ball_despawn_body_entered(body):
 	if body is Ball:
 		body.queue_free()
+
+func init_animations():
+	for npc in get_tree().get_nodes_in_group("NPC"):
+		npc.animation_player.play(npc.animation_names.pick_random())
+		await get_tree().create_timer(0.12).timeout
+	
