@@ -59,4 +59,11 @@ func set_movement_from_angle():
 func jump(power := 1.0, force:= false):
 	if is_on_floor() or force:
 		self.velocity.y = -jump_strength * power
+		
+func laugh():
+	var risas = get_node("Risas")
+	var resource = "res://assets/music/Risa_"+ str(randi_range(1,4)) +".mp3"
+	print(resource)
+	risas.stream = ResourceLoader.load(resource)
+	risas.play()		
 
