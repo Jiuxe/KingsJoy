@@ -12,6 +12,7 @@ func _ready():
 	for marker in get_children():
 		if marker is Marker2D:
 			list_marker.append(marker)
+	
 
 
 func spawn_ball():

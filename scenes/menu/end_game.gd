@@ -18,7 +18,7 @@ func pre_start(params):
 		ranking.pop_back()
 	
 	var ranking_box = get_node("MarginContainer/Control/Ranking").get_children()
-	get_node("MarginContainer/Control/Ranking/Cabecera/HBoxContainer/Nombre")
+	
 	for box in ranking_box:
 		var score = box.get_node("HBoxContainer/Tiempo")
 		var player_name = box.get_node("HBoxContainer/Nombre")
