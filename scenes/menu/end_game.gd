@@ -7,10 +7,11 @@ func _ready():
 	
 func pre_start(params):
 	
-	# ranking.append({"score": str(int(params.time_alive)), "player_name":params.player_name})
-	ranking.append({"score":"1", "player_name":"JIUXE"})
-	ranking.sort_custom(func(a, b): return a.score < b.score)
+	load_ranking()
 	
+	ranking.append({"score": str(int(params.time_alive)), "player_name":params.player_name})
+	ranking.sort_custom(func(a, b): return a.score > b.score)
+	print(ranking)
 	if ranking.size() > 3:
 		ranking.pop_back()
 	
@@ -24,32 +25,36 @@ func pre_start(params):
 			score.text = ranking[box.get_index()].score
 			player_name.text = ranking[box.get_index()].player_name
 	
-	save_ranking(ranking)
+	save_ranking()
+
 	
-func save_ranking(ranking):
-	verify_save_directory()
-	var file = FileAccess.open("user://score_saves/save_game.dat", FileAccess.WRITE)	
 	
+func save_ranking():
+	var file = FileAccess.new
+	file = FileAccess.open("user://save_game.save", FileAccess.WRITE)	
+
 	for player in ranking:
-		print(file)
-		# file.store_string(str(player))
+		file.store_line(JSON.stringify(player))
+	file.close()
+
+func load_ranking():
+	var file = FileAccess.new
+	var file_name = "user://save_game.save"
 	
+	if not FileAccess.file_exists(file_name):
+		return
+	
+	file = FileAccess.open(file_name, FileAccess.READ)
+	var json = JSON.new()
+	while file.get_position() < file.get_length():
+		ranking.append(json.parse_string(file.get_line()))
+	
+	file.close()
 
-func verify_save_directory():
-	var data_directory = DirAccess
-	data_directory.open("user://")
-	if !data_directory.dir_exists_absolute("score_saves"):
-		data_directory.make_dir_absolute("score_saves")
-	""""
-	var file_directory = FileAccess.file_exists("user://score_saves/save_game.dat")
-	if !file_directory:
-		FileAccess.new()
-		.new("user://score_saves/save_game.dat")
-	"""
-
+	
 func _on_PlayButton_pressed() -> void:
 	Game.change_scene_to_file("res://scenes/menu/menu.tscn")
-
+	
 
 func _on_ExitButton_pressed() -> void:
 	# gently shutdown the game
