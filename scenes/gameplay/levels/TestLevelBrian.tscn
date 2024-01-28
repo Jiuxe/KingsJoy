@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl1gsyrb1so8q"]
+[gd_scene load_steps=12 format=3 uid="uid://bl1gsyrb1so8q"]
 
 [ext_resource type="PackedScene" uid="uid://b14qok1b78khx" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_pbfou"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ci00xt65tor7i" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="4_ri8d6"]
 [ext_resource type="PackedScene" uid="uid://4w8827crhsb0" path="res://scenes/gameplay/hud.tscn" id="5_b2fh7"]
 [ext_resource type="Texture2D" uid="uid://bisjlfjsg3wdi" path="res://assets/sprites/cortina_1.png" id="7_7gk40"]
+[ext_resource type="AudioStream" uid="uid://imi6vf3a2n3b" path="res://assets/music/music_in_game.wav" id="8_cgu7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)
@@ -20,10 +21,7 @@ size = Vector2(100, 979)
 [node name="TestLevel2" type="Node2D"]
 script = ExtResource("1_pbfou")
 joy_speed = 1.0
-ball_despawn_time = null
 ball_fall_penalty = 40.0
-can_lose = false
-player_name = null
 
 [node name="SpriteBack" type="Sprite2D" parent="."]
 texture = ExtResource("2_36156")
@@ -80,6 +78,11 @@ centered = false
 script = ExtResource("3_lmkir")
 level = NodePath("..")
 player = NodePath("../Toni")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_cgu7d")
+autoplay = true
+attenuation = 2.07053
 
 [connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
 [connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]
