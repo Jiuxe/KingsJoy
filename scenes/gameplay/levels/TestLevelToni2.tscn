@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://gr4tvf43ye8q"]
+[gd_scene load_steps=24 format=3 uid="uid://gr4tvf43ye8q"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_5vw3v"]
 [ext_resource type="Texture2D" uid="uid://cxbqgytr8f58q" path="res://assets/sprites/cortina_2.png" id="2_bwj0h"]
@@ -9,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://w6bulnr80f6j" path="res://scenes/NPCs/npc.tscn" id="4_rcf31"]
 [ext_resource type="PackedScene" uid="uid://ci00xt65tor7i" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="4_uh06v"]
 [ext_resource type="Texture2D" uid="uid://7eeqagvk7yxw" path="res://assets/sprites/suelo.png" id="5_20adg"]
+[ext_resource type="Texture2D" uid="uid://brutsn5sre5wh" path="res://assets/sprites/NPCs/hombre.png" id="5_108mb"]
 [ext_resource type="PackedScene" uid="uid://4w8827crhsb0" path="res://scenes/gameplay/hud.tscn" id="5_fuj6k"]
 [ext_resource type="Texture2D" uid="uid://bisjlfjsg3wdi" path="res://assets/sprites/cortina_1.png" id="6_2mkri"]
 [ext_resource type="Texture2D" uid="uid://hfyth2elrxws" path="res://assets/sprites/rey_no_boca.png" id="6_v3dmm"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="7_2wjmk"]
+[ext_resource type="Texture2D" uid="uid://b8s2jobxv74w6" path="res://assets/sprites/NPCs/mujer.png" id="8_n7gaj"]
 [ext_resource type="Texture2D" uid="uid://36c31vok1e6d" path="res://assets/sprites/rubia_no_boca.png" id="8_phogk"]
 [ext_resource type="Texture2D" uid="uid://c5fop5bgldp5o" path="res://assets/sprites/rubia_boca.png" id="9_ndnrw"]
 [ext_resource type="PackedScene" path="res://scenes/NPCs/BackRow.tscn" id="16_vrboi"]
@@ -46,15 +48,36 @@ texture = ExtResource("2_bwj0h")
 
 [node name="NPCs" type="Node2D" parent="."]
 
+[node name="Node2D6" type="Node2D" parent="NPCs"]
+position = Vector2(278, -72)
+scale = Vector2(0.7, 0.7)
+
+[node name="ReyNoBoca" parent="NPCs/Node2D6" instance=ExtResource("4_rcf31")]
+texture = ExtResource("5_108mb")
+
 [node name="Node2D3" type="Node2D" parent="NPCs"]
-position = Vector2(842, -131)
+position = Vector2(700, -49)
 rotation = 3.14159
-scale = Vector2(1, -1)
+scale = Vector2(0.7, -0.7)
 
 [node name="ReyNoBoca" parent="NPCs/Node2D3" instance=ExtResource("4_rcf31")]
-scale = Vector2(0.231, 0.206)
 texture = ExtResource("8_phogk")
 mouth_sprite = ExtResource("9_ndnrw")
+
+[node name="Node2D9" type="Node2D" parent="NPCs"]
+position = Vector2(1229, -65)
+rotation = 3.14159
+scale = Vector2(0.7, -0.7)
+
+[node name="ReyNoBoca" parent="NPCs/Node2D9" instance=ExtResource("4_rcf31")]
+texture = ExtResource("8_n7gaj")
+
+[node name="Node2D8" type="Node2D" parent="NPCs"]
+position = Vector2(107, -61)
+scale = Vector2(0.7, 0.7)
+
+[node name="ReyNoBoca" parent="NPCs/Node2D8" instance=ExtResource("4_rcf31")]
+texture = ExtResource("8_n7gaj")
 
 [node name="Cortina4" type="Sprite2D" parent="NPCs"]
 position = Vector2(549, 241)
@@ -68,12 +91,33 @@ texture = ExtResource("6_v3dmm")
 mouth_sprite = ExtResource("4_k5ou1")
 
 [node name="Node2D" type="Node2D" parent="NPCs"]
-position = Vector2(186, 40)
+position = Vector2(338, 140)
+scale = Vector2(0.7, 0.7)
 
 [node name="ReyNoBoca2" parent="NPCs/Node2D" instance=ExtResource("4_rcf31")]
-scale = Vector2(0.23538, 0.205998)
 texture = ExtResource("8_phogk")
 mouth_sprite = ExtResource("9_ndnrw")
+
+[node name="Node2D4" type="Node2D" parent="NPCs"]
+position = Vector2(11, 111)
+scale = Vector2(0.7, 0.7)
+
+[node name="ReyNoBoca" parent="NPCs/Node2D4" instance=ExtResource("4_rcf31")]
+texture = ExtResource("5_108mb")
+
+[node name="Node2D5" type="Node2D" parent="NPCs"]
+position = Vector2(651, 113)
+scale = Vector2(-0.7, 0.7)
+
+[node name="ReyNoBoca" parent="NPCs/Node2D5" instance=ExtResource("4_rcf31")]
+texture = ExtResource("5_108mb")
+
+[node name="Node2D7" type="Node2D" parent="NPCs"]
+position = Vector2(508, 122)
+scale = Vector2(0.7, 0.7)
+
+[node name="ReyNoBoca" parent="NPCs/Node2D7" instance=ExtResource("4_rcf31")]
+texture = ExtResource("8_n7gaj")
 
 [node name="Suelo" type="Sprite2D" parent="."]
 position = Vector2(558, 415)
