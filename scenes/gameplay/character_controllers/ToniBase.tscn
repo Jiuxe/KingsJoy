@@ -1,0 +1,207 @@
+[gd_scene load_steps=16 format=3 uid="uid://jpguhpnhlib0"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/character_controllers/ToniBrian.gd" id="1_v7vcq"]
+[ext_resource type="Texture2D" uid="uid://bwo1f8eae5r7w" path="res://assets/sprites/player/monocycle.png" id="2_vh86q"]
+[ext_resource type="Texture2D" uid="uid://c2penoof05ab4" path="res://assets/sprites/player/shirt.png" id="3_vff2s"]
+[ext_resource type="Texture2D" uid="uid://cp3cp43usnqgs" path="res://assets/sprites/player/head.png" id="4_tt3fq"]
+[ext_resource type="Texture2D" uid="uid://d22pacvlnklub" path="res://assets/sprites/player/arm_1.png" id="5_t8blu"]
+[ext_resource type="Texture2D" uid="uid://pyhux1h2c3v7" path="res://assets/sprites/player/arm_2.png" id="6_42j7f"]
+[ext_resource type="Script" path="res://scenes/gameplay/character_controllers/ToniBrian/ArmCollider.gd" id="7_lomqj"]
+[ext_resource type="Texture2D" uid="uid://bd5hl7qsuatp" path="res://assets/sprites/player/hip.png" id="8_t5hey"]
+[ext_resource type="Texture2D" uid="uid://cta4qd1ro13av" path="res://assets/sprites/player/leg_r.png" id="9_mjx5f"]
+[ext_resource type="Texture2D" uid="uid://durnxakbk2le4" path="res://assets/sprites/player/knee_r.png" id="10_oyo4q"]
+[ext_resource type="Texture2D" uid="uid://dyw7b3sub3xoy" path="res://assets/sprites/player/foot.png" id="11_t8loi"]
+[ext_resource type="Texture2D" uid="uid://cl6uocgs3vnwx" path="res://assets/sprites/player/leg_l.png" id="12_kchgi"]
+[ext_resource type="Texture2D" uid="uid://bs23v6jax4nws" path="res://assets/sprites/player/knee_l.png" id="13_moys3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pm8y"]
+size = Vector2(150, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ppk"]
+size = Vector2(416, 152)
+
+[node name="Toni" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_v7vcq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3pm8y")
+
+[node name="Root" type="Node2D" parent="."]
+
+[node name="MonoCycle" type="Node2D" parent="Root"]
+
+[node name="Line2D" type="Line2D" parent="Root/MonoCycle"]
+visible = false
+position = Vector2(2, -159.875)
+points = PackedVector2Array(1, 3, 0, 91)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Root/MonoCycle"]
+visible = false
+position = Vector2(4, -31)
+polygon = PackedVector2Array(-42, -44, 34, -45, 70, -6, 70, 58, 36, 106, -36, 106, -78, 55, -77, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/MonoCycle"]
+position = Vector2(0, -82)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vh86q")
+
+[node name="Body" type="Node2D" parent="Root"]
+position = Vector2(0, -62)
+
+[node name="Top" type="Node2D" parent="Root/Body"]
+position = Vector2(0, -202)
+
+[node name="Polygon2D" type="Polygon2D" parent="Root/Body/Top"]
+visible = false
+position = Vector2(3, 104.125)
+polygon = PackedVector2Array(-92, -250, 98, -250, 6, -97)
+
+[node name="Shirt" type="Sprite2D" parent="Root/Body/Top"]
+position = Vector2(0, -107)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_vff2s")
+
+[node name="Neck" type="Node2D" parent="Root/Body/Top"]
+position = Vector2(4.29153e-06, -144)
+
+[node name="Head" type="Sprite2D" parent="Root/Body/Top/Neck"]
+position = Vector2(-1, -103)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_tt3fq")
+
+[node name="RArm1" type="Node2D" parent="Root/Body/Top"]
+position = Vector2(62, -140)
+scale = Vector2(1.1, 1.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/Top/RArm1"]
+position = Vector2(47, -5)
+rotation = -1.33518
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_t8blu")
+
+[node name="RArm2" type="Node2D" parent="Root/Body/Top/RArm1"]
+position = Vector2(102, -7)
+scale = Vector2(1.2, 1.2)
+
+[node name="RHand" type="Polygon2D" parent="Root/Body/Top/RArm1/RArm2"]
+visible = false
+position = Vector2(159, 5)
+polygon = PackedVector2Array(-1, -5, 23, -36, 71, -22, 79, 16, 39, 26, 0, 13)
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/Top/RArm1/RArm2"]
+position = Vector2(59, 0)
+rotation = -1.5708
+scale = Vector2(-0.4, 0.4)
+texture = ExtResource("6_42j7f")
+
+[node name="LArm1" type="Node2D" parent="Root/Body/Top"]
+position = Vector2(-62, -140)
+scale = Vector2(1.1, 1.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/Top/LArm1"]
+position = Vector2(-49, -7)
+rotation = -1.80642
+scale = Vector2(0.4, -0.4)
+texture = ExtResource("5_t8blu")
+
+[node name="LArm2" type="Node2D" parent="Root/Body/Top/LArm1"]
+position = Vector2(-102, -7)
+scale = Vector2(1.2, 1.2)
+
+[node name="LHand" type="Polygon2D" parent="Root/Body/Top/LArm1/LArm2"]
+visible = false
+position = Vector2(-232, -1)
+polygon = PackedVector2Array(-1, -5, 23, -36, 71, -22, 79, 16, 39, 26, 0, 13)
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/Top/LArm1/LArm2"]
+position = Vector2(-59, 0)
+rotation = -1.5708
+scale = Vector2(-0.4, -0.4)
+texture = ExtResource("6_42j7f")
+
+[node name="LArmCollider" type="Area2D" parent="Root/Body/Top" node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
+position = Vector2(-263, -225)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_lomqj")
+player = NodePath("../../../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Body/Top/LArmCollider"]
+position = Vector2(105, 100)
+shape = SubResource("RectangleShape2D_d1ppk")
+
+[node name="RArmCollider" type="Area2D" parent="Root/Body/Top" node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
+position = Vector2(263, -225)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_lomqj")
+player = NodePath("../../../..")
+orientation = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Body/Top/RArmCollider"]
+position = Vector2(-103, 101)
+shape = SubResource("RectangleShape2D_d1ppk")
+one_way_collision_margin = 0.0
+
+[node name="HipPolygon" type="Polygon2D" parent="Root/Body"]
+visible = false
+position = Vector2(3, -97.875)
+polygon = PackedVector2Array(-36, -104, 75, -106, 5, -53)
+
+[node name="HipSprite" type="Sprite2D" parent="Root/Body"]
+position = Vector2(0, -185)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("8_t5hey")
+
+[node name="LegR" type="Node2D" parent="Root/Body/HipSprite"]
+position = Vector2(124.242, 0)
+rotation = -0.523598
+
+[node name="LegRSprite" type="Sprite2D" parent="Root/Body/HipSprite/LegR"]
+position = Vector2(10, 190)
+texture = ExtResource("9_mjx5f")
+
+[node name="KneeR" type="Node2D" parent="Root/Body/HipSprite/LegR"]
+position = Vector2(30, 380)
+rotation = 1.309
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/HipSprite/LegR/KneeR"]
+position = Vector2(10, 165)
+texture = ExtResource("10_oyo4q")
+
+[node name="FootR" type="Node2D" parent="Root/Body/HipSprite/LegR/KneeR"]
+position = Vector2(0, 320)
+rotation = 0.261799
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/HipSprite/LegR/KneeR/FootR"]
+position = Vector2(55, 30)
+texture = ExtResource("11_t8loi")
+
+[node name="LegL" type="Node2D" parent="Root/Body/HipSprite"]
+position = Vector2(-124.242, 0)
+rotation = 0.261799
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/HipSprite/LegL"]
+position = Vector2(-10, 190)
+texture = ExtResource("12_kchgi")
+
+[node name="KneeL" type="Node2D" parent="Root/Body/HipSprite/LegL"]
+position = Vector2(-30, 380)
+rotation = -0.785397
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/HipSprite/LegL/KneeL"]
+position = Vector2(-10, 165)
+texture = ExtResource("13_moys3")
+
+[node name="FootL" type="Node2D" parent="Root/Body/HipSprite/LegL/KneeL"]
+position = Vector2(0, 320)
+rotation = -0.523598
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Body/HipSprite/LegL/KneeL/FootL"]
+position = Vector2(-55, 30)
+scale = Vector2(-1, 1)
+texture = ExtResource("11_t8loi")

@@ -28,9 +28,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		actor.jump()
-	
-	if Input.is_action_just_pressed("ui_cancel"):
-		Game.restart_scene()
 
 func normal_movement(delta):
 	var h_input := Input.get_axis("ui_left", "ui_right")
