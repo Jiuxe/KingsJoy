@@ -20,7 +20,7 @@
 size = Vector2(1151, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm3lu"]
-size = Vector2(1173, 28)
+size = Vector2(907, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8prvx"]
 size = Vector2(100, 979)
@@ -32,6 +32,7 @@ size = Vector2(236, 675)
 script = ExtResource("1_5vw3v")
 joy_speed = 1.0
 ball_fall_penalty = 40.0
+can_lose = false
 
 [node name="FondoTerciopelo" type="Sprite2D" parent="."]
 position = Vector2(543, 289)
@@ -122,19 +123,19 @@ debug_color = Color(0.701961, 0, 0, 0.419608)
 position = Vector2(-20, 0)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BallDespawn"]
-position = Vector2(1243, 184.5)
+position = Vector2(1065, 184.5)
 shape = SubResource("RectangleShape2D_8prvx")
 debug_color = Color(0, 0.701961, 0.254902, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallDespawn"]
-position = Vector2(-40, 184.5)
+position = Vector2(116, 184.5)
 shape = SubResource("RectangleShape2D_8prvx")
 debug_color = Color(0, 0.701961, 0.254902, 0.419608)
 
 [node name="PlayerWalls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerWalls"]
-position = Vector2(79, 327.5)
+position = Vector2(52, 327.5)
 shape = SubResource("RectangleShape2D_qbxnd")
 debug_color = Color(0.636866, 0.524435, 0.122672, 0.42)
 

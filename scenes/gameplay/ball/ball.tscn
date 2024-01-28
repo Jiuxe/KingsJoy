@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Ball.gd" id="1_tr35u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7is4"]
+radius = 15.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2

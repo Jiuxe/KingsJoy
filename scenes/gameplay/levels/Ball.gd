@@ -20,7 +20,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _draw():
-	draw_circle(Vector2.ZERO, collision_shape_2d.shape.radius, color)
+	draw_circle(Vector2.ZERO, collision_shape_2d.shape.radius, "f5eedc")
+	draw_circle(Vector2.ZERO, collision_shape_2d.shape.radius-2, color)
 
 func jump(arm_rotation: float, force_multiplier:= 0.8):
 	self.velocity = Vector2(0, JUMP_VELOCITY*force_multiplier).rotated(arm_rotation)

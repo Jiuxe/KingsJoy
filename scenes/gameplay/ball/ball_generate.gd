@@ -18,7 +18,8 @@ func spawn_ball():
 	var generate_in_marker = list_marker[randi_range(0,list_marker.size()-1)]
 	var new_ball = ball.instantiate()
 	add_child(new_ball)
-	new_ball.color = Color(randf_range(0,1), randf_range(0,1), randf_range(0,1))
+	
+	new_ball.color = Color.from_hsv(randf(), randf_range(0.25, 0.75), 0.5)
 	
 	new_ball.global_position = generate_in_marker.global_position
 	var rotation_rads = deg_to_rad(randi_range(-55, -45))
