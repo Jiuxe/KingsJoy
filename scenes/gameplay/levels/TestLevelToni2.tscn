@@ -1,5 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://gr4tvf43ye8q"]
-
+[gd_scene load_steps=24 format=3 uid="uid://gr4tvf43ye8q"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_5vw3v"]
 [ext_resource type="Texture2D" uid="uid://cxbqgytr8f58q" path="res://assets/sprites/cortina_2.png" id="2_bwj0h"]
@@ -50,30 +49,32 @@ texture = ExtResource("2_bwj0h")
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="Node2D6" type="Node2D" parent="NPCs"]
-position = Vector2(136, -148)
+position = Vector2(278, -72)
+scale = Vector2(0.7, 0.7)
 
 [node name="ReyNoBoca" parent="NPCs/Node2D6" instance=ExtResource("4_rcf31")]
 texture = ExtResource("5_108mb")
 
 [node name="Node2D3" type="Node2D" parent="NPCs"]
-position = Vector2(842, -131)
+position = Vector2(700, -49)
 rotation = 3.14159
-scale = Vector2(1, -1)
+scale = Vector2(0.7, -0.7)
 
 [node name="ReyNoBoca" parent="NPCs/Node2D3" instance=ExtResource("4_rcf31")]
 texture = ExtResource("8_phogk")
 mouth_sprite = ExtResource("9_ndnrw")
 
 [node name="Node2D9" type="Node2D" parent="NPCs"]
-position = Vector2(1423, -163)
+position = Vector2(1229, -65)
 rotation = 3.14159
-scale = Vector2(1, -1)
+scale = Vector2(0.7, -0.7)
 
 [node name="ReyNoBoca" parent="NPCs/Node2D9" instance=ExtResource("4_rcf31")]
 texture = ExtResource("8_n7gaj")
 
 [node name="Node2D8" type="Node2D" parent="NPCs"]
-position = Vector2(-51, -171)
+position = Vector2(107, -61)
+scale = Vector2(0.7, 0.7)
 
 [node name="ReyNoBoca" parent="NPCs/Node2D8" instance=ExtResource("4_rcf31")]
 texture = ExtResource("8_n7gaj")
@@ -90,27 +91,30 @@ texture = ExtResource("6_v3dmm")
 mouth_sprite = ExtResource("4_k5ou1")
 
 [node name="Node2D" type="Node2D" parent="NPCs"]
-position = Vector2(186, 40)
+position = Vector2(338, 140)
+scale = Vector2(0.7, 0.7)
 
 [node name="ReyNoBoca2" parent="NPCs/Node2D" instance=ExtResource("4_rcf31")]
 texture = ExtResource("8_phogk")
 mouth_sprite = ExtResource("9_ndnrw")
 
 [node name="Node2D4" type="Node2D" parent="NPCs"]
-position = Vector2(-127, -1)
+position = Vector2(11, 111)
+scale = Vector2(0.7, 0.7)
 
 [node name="ReyNoBoca" parent="NPCs/Node2D4" instance=ExtResource("4_rcf31")]
 texture = ExtResource("5_108mb")
 
 [node name="Node2D5" type="Node2D" parent="NPCs"]
-position = Vector2(791, 5)
-scale = Vector2(-1, 1)
+position = Vector2(651, 113)
+scale = Vector2(-0.7, 0.7)
 
 [node name="ReyNoBoca" parent="NPCs/Node2D5" instance=ExtResource("4_rcf31")]
 texture = ExtResource("5_108mb")
 
 [node name="Node2D7" type="Node2D" parent="NPCs"]
-position = Vector2(354, 0)
+position = Vector2(508, 122)
+scale = Vector2(0.7, 0.7)
 
 [node name="ReyNoBoca" parent="NPCs/Node2D7" instance=ExtResource("4_rcf31")]
 texture = ExtResource("8_n7gaj")

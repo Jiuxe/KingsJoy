@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b14qok1b78khx"]
 
-[ext_resource type="PackedScene" path="res://scenes/gameplay/character_controllers/ToniBase.tscn" id="1_felre"]
+[ext_resource type="PackedScene" uid="uid://jpguhpnhlib0" path="res://scenes/gameplay/character_controllers/ToniBase.tscn" id="1_felre"]
 [ext_resource type="Script" path="res://scenes/gameplay/character_controllers/ToniBrian/InputController.gd" id="2_va05a"]
 
 [node name="Toni" instance=ExtResource("1_felre")]
