@@ -38,6 +38,13 @@ script = ExtResource("1_5vw3v")
 joy_speed = 1.0
 ball_fall_penalty = 40.0
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Risas" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-263, -489)
+
 [node name="Sad" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_4mihm")
 
@@ -210,6 +217,7 @@ stream = ExtResource("17_pagwm")
 autoplay = true
 attenuation = 2.07053
 
+[connection signal="timeout" from="Timer" to="." method="laugh"]
 [connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
 [connection signal="body_entered" from="BallFallArea" to="." method="sad"]
 [connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]

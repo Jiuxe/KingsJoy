@@ -55,4 +55,11 @@ func init_animations():
 	for npc in get_tree().get_nodes_in_group("NPC"):
 		npc.animation_player.play(npc.animation_names.pick_random())
 		await get_tree().create_timer(0.12).timeout
-	
+
+		
+func laugh():
+	var risas = get_node("Risas")
+	var resource = "res://assets/music/Risa_"+ str(randi_range(1,4)) +".mp3"
+	print(resource)
+	risas.stream = ResourceLoader.load(resource)
+	risas.play()	
