@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlx5wokauao1u"]
+
+[ext_resource type="Texture2D" uid="uid://brde8tmrg6qn8" path="res://assets/sprites/dark_npcs/dark1.png" id="1_1wyus"]
+
+[node name="BackNPC" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, -70)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_1wyus")
