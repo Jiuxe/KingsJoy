@@ -5,10 +5,8 @@ var ranking = []
 
 func _ready():
 	play_button.grab_focus()
-	pass
 	
 func pre_start(params):
-	
 	load_ranking()
 	
 	ranking.append({"score": str(int(params.time_alive)), "player_name":params.player_name})
@@ -32,21 +30,19 @@ func pre_start(params):
 	
 	
 func save_ranking():
-	var file = FileAccess.new
-	file = FileAccess.open("user://save_game.save", FileAccess.WRITE)	
+	var file = FileAccess.open("user://save_game.save", FileAccess.WRITE)
 
 	for player in ranking:
 		file.store_line(JSON.stringify(player))
 	file.close()
 
 func load_ranking():
-	var file = FileAccess.new
 	var file_name = "user://save_game.save"
 	
 	if not FileAccess.file_exists(file_name):
 		return
 	
-	file = FileAccess.open(file_name, FileAccess.READ)
+	var file = FileAccess.open(file_name, FileAccess.READ)
 	var json = JSON.new()
 	while file.get_position() < file.get_length():
 		ranking.append(json.parse_string(file.get_line()))
