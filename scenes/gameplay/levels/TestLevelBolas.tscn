@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bulf1f41mjkn3"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_qkka7"]
-[ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="2_spuxh"]
+[ext_resource type="PackedScene" uid="uid://b14qok1b78khx" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="2_spuxh"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="3_mwwbg"]
 [ext_resource type="PackedScene" uid="uid://bu0najh3ngo8e" path="res://scenes/gameplay/ball/ball_generate.tscn" id="4_2p8m3"]
 
@@ -10,6 +10,11 @@ size = Vector2(1151, 101)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_qkka7")
+joy_speed = null
+ball_despawn_time = null
+ball_fall_penalty = null
+can_lose = null
+player_name = null
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.490196, 0.337255, 0.309804, 1)

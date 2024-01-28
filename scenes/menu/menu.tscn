@@ -93,16 +93,26 @@ theme_override_constants/separation = 16
 [node name="PlayButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../ExitButton")
-focus_next = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../TutorialButton")
+focus_next = NodePath("../TutorialButton")
 theme_override_colors/font_color = Color(0.729412, 0.729412, 0, 1)
 text = "START"
+
+[node name="TutorialButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../PlayButton")
+theme_override_colors/font_color = Color(0.729412, 0.729412, 0, 1)
+text = "TUTORIAL"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
-focus_neighbor_top = NodePath("../PlayButton")
-focus_previous = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../TutorialButton")
+focus_previous = NodePath("../TutorialButton")
 theme_override_colors/font_color = Color(0.713726, 0.709804, 0.00392157, 1)
 text = "EXIT"
 
@@ -174,4 +184,5 @@ texture = ExtResource("6_0l11b")
 centered = false
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/TutorialButton" to="." method="_on_TutorialButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

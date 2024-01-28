@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bl1gsyrb1so8q"]
 
-[ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
+[ext_resource type="PackedScene" uid="uid://b14qok1b78khx" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="1_6krs1"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_pbfou"]
 [ext_resource type="Texture2D" uid="uid://coxl86nbfxamd" path="res://assets/sprites/escenario_1.png" id="2_36156"]
 [ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="3_lmkir"]
@@ -20,8 +20,10 @@ size = Vector2(100, 979)
 [node name="TestLevel2" type="Node2D"]
 script = ExtResource("1_pbfou")
 joy_speed = 1.0
+ball_despawn_time = null
 ball_fall_penalty = 40.0
 can_lose = false
+player_name = null
 
 [node name="SpriteBack" type="Sprite2D" parent="."]
 texture = ExtResource("2_36156")

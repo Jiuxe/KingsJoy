@@ -2,6 +2,8 @@ extends Control
 
 @onready var btn_play = $MarginContainer/Control/VBoxContainer/PlayButton
 @onready var btn_exit = $MarginContainer/Control/VBoxContainer/ExitButton
+@onready var tutorial_button = $MarginContainer/Control/VBoxContainer/TutorialButton
+
 @onready var player_name = %player_name
 
 
@@ -29,3 +31,9 @@ func _on_ExitButton_pressed() -> void:
 		await transitions.anim.animation_finished
 		await get_tree().create_timer(0.3).timeout
 	get_tree().quit()
+	
+func _on_TutorialButton_pressed() -> void:
+	var params = {
+		"player_name": player_name.text
+	}
+	Game.change_scene_to_file("res://scenes/gameplay/levels/tutorial.tscn", params)

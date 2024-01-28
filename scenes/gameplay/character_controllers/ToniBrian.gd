@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 signal died
 
-@onready var input_controller = $InputController
 @onready var top = $Root/Body/Top
 
 @onready var root = $Root
@@ -32,8 +31,10 @@ var normalized_angle = null:
 		pass
 
 func _ready():
-	input_controller.actor = self
-	input_controller.is_ready = true
+	var input_controller = get_node("InputController")
+	if input_controller != null:
+		input_controller.actor = self
+		input_controller.is_ready = true
 
 func _physics_process(delta):
 	process_angle(delta)

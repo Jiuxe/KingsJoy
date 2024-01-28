@@ -25,6 +25,8 @@ func _physics_process(delta):
 	joy += joy_speed * delta
 
 func _process(delta):
+	if Input.is_action_just_pressed("catalan"):
+		Game.change_scene_to_file("res://scenes/menu/menu.tscn")
 	time_alive += delta
 
 func pre_start(params):

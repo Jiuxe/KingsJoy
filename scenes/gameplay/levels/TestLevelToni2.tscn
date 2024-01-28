@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_5vw3v"]
 [ext_resource type="Texture2D" uid="uid://cxbqgytr8f58q" path="res://assets/sprites/cortina_2.png" id="2_bwj0h"]
 [ext_resource type="Texture2D" uid="uid://dfhxqfw2fs0is" path="res://assets/sprites/fondo_terciopelo.png" id="2_h2v5r"]
-[ext_resource type="PackedScene" uid="uid://b3ssky8xmurmq" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="3_csj56"]
+[ext_resource type="PackedScene" uid="uid://b14qok1b78khx" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="3_csj56"]
 [ext_resource type="Texture2D" uid="uid://d35nbuhm0m34k" path="res://assets/sprites/cortina_3.png" id="4_ejhi2"]
 [ext_resource type="Texture2D" uid="uid://3bcu6qb8ic5l" path="res://assets/sprites/rey_boca.png" id="4_k5ou1"]
 [ext_resource type="PackedScene" uid="uid://w6bulnr80f6j" path="res://scenes/NPCs/npc.tscn" id="4_rcf31"]

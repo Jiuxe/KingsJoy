@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://crpcnjhvf8mu5"]
+
+[ext_resource type="Texture2D" uid="uid://dfhxqfw2fs0is" path="res://assets/sprites/fondo_terciopelo.png" id="1_kpidj"]
+[ext_resource type="Script" path="res://scenes/menu/tutorial.gd" id="1_uuc3n"]
+[ext_resource type="PackedScene" uid="uid://b14qok1b78khx" path="res://scenes/gameplay/character_controllers/ToniBrian.tscn" id="3_fpc5s"]
+[ext_resource type="Texture2D" uid="uid://b7oxwa5ygd8sd" path="res://assets/sprites/controls/button_xbox_analog_l_direction_2.png" id="4_aibv6"]
+[ext_resource type="Texture2D" uid="uid://0320ckw06kbn" path="res://assets/sprites/controls/button_xbox_analog_l_direction_4.png" id="5_qla12"]
+[ext_resource type="Texture2D" uid="uid://clbeywmmvn4ke" path="res://assets/sprites/controls/button_xbox_analog_trigger_dark_1.png" id="6_yqung"]
+[ext_resource type="Texture2D" uid="uid://dd72ffqoy735m" path="res://assets/sprites/controls/button_xbox_analog_trigger_dark_2.png" id="7_6uo00"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8a8pb"]
+size = Vector2(2292, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_166qx"]
+size = Vector2(130, 967)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gim0"]
+size = Vector2(95, 896)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r6y8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_aibv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qla12")
+}],
+"loop": true,
+"name": &"joystick",
+"speed": 1.0
+}]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_uuc3n")
+
+[node name="FondoTerciopelo" type="Sprite2D" parent="."]
+position = Vector2(632, 361)
+texture = ExtResource("1_kpidj")
+
+[node name="Toni" parent="." instance=ExtResource("3_fpc5s")]
+position = Vector2(542, 323)
+scale = Vector2(0.4, 0.4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(580, 427)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_8a8pb")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1211, 41)
+shape = SubResource("RectangleShape2D_166qx")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-38, 66)
+shape = SubResource("RectangleShape2D_8gim0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(204, 540)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_r6y8f")
+animation = &"joystick"
+
+[node name="ButtonXboxAnalogTriggerDark1" type="Sprite2D" parent="."]
+position = Vector2(725, 540)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_yqung")
+
+[node name="ButtonXboxAnalogTriggerDark2" type="Sprite2D" parent="."]
+position = Vector2(922, 540)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_6uo00")
