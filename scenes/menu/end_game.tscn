@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://6tve156e62qq"]
+[gd_scene load_steps=6 format=3 uid="uid://6tve156e62qq"]
 
 [ext_resource type="Script" path="res://scenes/menu/end_game.gd" id="1_f84cr"]
+[ext_resource type="Texture2D" uid="uid://d1qdo8ywoftpv" path="res://assets/sprites/fondo_terciopelo_end_game.png" id="2_3ckfx"]
 [ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="2_pwgn7"]
 [ext_resource type="Script" path="res://scenes/menu/game_version.gd" id="3_s0l6a"]
 [ext_resource type="Script" path="res://scenes/menu/godot_version.gd" id="4_jiofe"]
@@ -22,6 +23,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.580392, 0.607843, 0.592157, 1)
+
+[node name="FondoTerciopeloEndGame" type="Sprite2D" parent="."]
+position = Vector2(617, 361)
+scale = Vector2(0.754687, 0.80463)
+texture = ExtResource("2_3ckfx")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -48,23 +54,25 @@ offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Cabecera" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
+[node name="Linea_1" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
+self_modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Cabecera"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_1"]
 layout_mode = 2
 
-[node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Cabecera/HBoxContainer"]
+[node name="Nombre" type="Label" parent="MarginContainer/Control/Ranking/Linea_1/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "JUGADOR"
 
-[node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Cabecera/HBoxContainer"]
+[node name="Tiempo" type="Label" parent="MarginContainer/Control/Ranking/Linea_1/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "SCORE"
 
 [node name="Linea_2" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
+self_modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_2"]
@@ -81,6 +89,7 @@ size_flags_horizontal = 6
 text = "SCORE"
 
 [node name="Linea_3" type="PanelContainer" parent="MarginContainer/Control/Ranking"]
+self_modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Ranking/Linea_3"]
@@ -107,12 +116,15 @@ offset_bottom = -339.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="MarginContainer/Control/Game over"]
+[node name="Title2" type="Label" parent="MarginContainer/Control/Game over"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.423529, 0.423529, 0.423529, 1)
+theme_override_colors/font_outline_color = Color(0.952941, 0.956863, 0.921569, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 17
 theme_override_fonts/font = ExtResource("2_pwgn7")
-theme_override_font_sizes/font_size = 60
-text = "GAME OVER
-"
+theme_override_font_sizes/font_size = 63
+text = "GAME OVER"
 uppercase = true
 
 [node name="Subtitle" type="CenterContainer" parent="MarginContainer/Control"]
@@ -129,12 +141,14 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 
 [node name="Title" type="Label" parent="MarginContainer/Control/Subtitle"]
-modulate = Color(0, 0, 1, 1)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.32549, 0.352941, 0.827451, 1)
+theme_override_colors/font_outline_color = Color(0.952941, 0.956863, 0.921569, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 17
 theme_override_fonts/font = ExtResource("2_pwgn7")
-theme_override_font_sizes/font_size = 60
-text = "The king is sad
-"
+theme_override_font_sizes/font_size = 52
+text = "The king is sad"
 uppercase = true
 
 [node name="Subtitle_2" type="CenterContainer" parent="MarginContainer/Control"]
@@ -147,9 +161,21 @@ offset_bottom = 294.0
 scale = Vector2(0.45, 0.45)
 
 [node name="Title" type="Label" parent="MarginContainer/Control/Subtitle_2"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_pwgn7")
 theme_override_font_sizes/font_size = 60
+text = "You are DEAD"
+uppercase = true
+
+[node name="Title2" type="Label" parent="MarginContainer/Control/Subtitle_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32549, 0.352941, 0.827451, 1)
+theme_override_colors/font_outline_color = Color(0.952941, 0.956863, 0.921569, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("2_pwgn7")
+theme_override_font_sizes/font_size = 52
 text = "You are DEAD"
 uppercase = true
 
@@ -169,6 +195,7 @@ grow_vertical = 2
 theme_override_constants/separation = 16
 
 [node name="PlayButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+self_modulate = Color(1, 1, 0, 1)
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ExitButton")
@@ -176,6 +203,7 @@ focus_next = NodePath("../ExitButton")
 text = "RESTART"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+self_modulate = Color(1, 1, 0, 1)
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
