@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://4w8827crhsb0"]
+[gd_scene load_steps=6 format=3 uid="uid://4w8827crhsb0"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/hud.gd" id="1_ihc4m"]
+[ext_resource type="FontFile" uid="uid://244lgjebkxj5" path="res://assets/fonts/Mork Dungeon.ttf" id="2_heodm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tmgd"]
+bg_color = Color(0.831373, 0.835294, 0.803922, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbejh"]
+bg_color = Color(0.603922, 0.501961, 0, 1)
+border_width_left = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_ae7yd"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_3tmgd")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_vbejh")
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ihc4m")
@@ -17,25 +36,32 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_right = 132.0
+offset_left = -2.0
+offset_right = 201.0
 grow_vertical = 2
 
 [node name="TimerLabel" type="Label" parent="Control/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.603922, 0.501961, 0, 1)
+theme_override_colors/font_outline_color = Color(0.831373, 0.835294, 0.803922, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("2_heodm")
+theme_override_font_sizes/font_size = 50
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JoyBar" type="ProgressBar" parent="Control/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 7
 size_flags_stretch_ratio = 3.0
+theme = SubResource("Theme_ae7yd")
+value = 50.0
 fill_mode = 3
 show_percentage = false
 

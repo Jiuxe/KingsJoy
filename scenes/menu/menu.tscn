@@ -57,7 +57,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.605569, 0.500903, 0, 1)
+theme_override_colors/font_color = Color(0.603922, 0.501961, 0, 1)
 theme_override_colors/font_outline_color = Color(0.952941, 0.956863, 0.921569, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/outline_size = 17

@@ -33,7 +33,6 @@ size = Vector2(236, 675)
 script = ExtResource("1_5vw3v")
 joy_speed = 1.0
 ball_fall_penalty = 40.0
-can_lose = false
 
 [node name="FondoTerciopelo" type="Sprite2D" parent="."]
 position = Vector2(543, 289)
@@ -102,12 +101,12 @@ angle = 3.0
 fall_factor = 90.0
 death_angle = 80.0
 
+[node name="BallGenerator" parent="." instance=ExtResource("4_uh06v")]
+position = Vector2(47, -21)
+
 [node name="SpriteFront" type="Sprite2D" parent="."]
 texture = ExtResource("6_2mkri")
 centered = false
-
-[node name="BallGenerator" parent="." instance=ExtResource("4_uh06v")]
-position = Vector2(47, -21)
 
 [node name="HUD" parent="." instance=ExtResource("5_fuj6k")]
 
