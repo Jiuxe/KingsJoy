@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://w6bulnr80f6j" path="res://scenes/NPCs/npc.tscn" id="4_rcf31"]
 [ext_resource type="PackedScene" uid="uid://ci00xt65tor7i" path="res://scenes/gameplay/ball/ball_generate2.tscn" id="4_uh06v"]
 [ext_resource type="Texture2D" uid="uid://7eeqagvk7yxw" path="res://assets/sprites/suelo.png" id="5_20adg"]
-[ext_resource type="Texture2D" uid="uid://brutsn5sre5wh" path="res://assets/sprites/NPCs/hombre.png" id="5_108mb"]
+[ext_resource type="Texture2D" uid="uid://0wkei8jktlto" path="res://assets/sprites/NPCs/hombre.png" id="5_108mb"]
 [ext_resource type="PackedScene" uid="uid://4w8827crhsb0" path="res://scenes/gameplay/hud.tscn" id="5_fuj6k"]
 [ext_resource type="Texture2D" uid="uid://bisjlfjsg3wdi" path="res://assets/sprites/cortina_1.png" id="6_2mkri"]
 [ext_resource type="Texture2D" uid="uid://hfyth2elrxws" path="res://assets/sprites/rey_no_boca.png" id="6_v3dmm"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b8s2jobxv74w6" path="res://assets/sprites/NPCs/mujer.png" id="8_n7gaj"]
 [ext_resource type="Texture2D" uid="uid://36c31vok1e6d" path="res://assets/sprites/rubia_no_boca.png" id="8_phogk"]
 [ext_resource type="Texture2D" uid="uid://c5fop5bgldp5o" path="res://assets/sprites/rubia_boca.png" id="9_ndnrw"]
-[ext_resource type="PackedScene" path="res://scenes/NPCs/BackRow.tscn" id="16_vrboi"]
+[ext_resource type="PackedScene" uid="uid://ba37jlwwam8wr" path="res://scenes/NPCs/BackRow.tscn" id="16_vrboi"]
 [ext_resource type="AudioStream" uid="uid://imi6vf3a2n3b" path="res://assets/music/music_in_game.wav" id="17_pagwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bs5xpadhau32s"]
+[gd_scene load_steps=16 format=3 uid="uid://c1gunoni7drhm"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/character_controllers/ToniBrian.gd" id="1_v7vcq"]
 [ext_resource type="Texture2D" uid="uid://bwo1f8eae5r7w" path="res://assets/sprites/player/monocycle.png" id="2_vh86q"]
@@ -18,7 +18,7 @@
 size = Vector2(150, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ppk"]
-size = Vector2(416, 152)
+size = Vector2(526, 152)
 
 [node name="Toni" type="CharacterBody2D"]
 collision_layer = 0
@@ -77,8 +77,8 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_tt3fq")
 
 [node name="RArm1" type="Node2D" parent="Root/Body/Top"]
-position = Vector2(62, -140)
-scale = Vector2(1.1, 1.1)
+position = Vector2(101, -139)
+scale = Vector2(1.2, 1.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Root/Body/Top/RArm1"]
 position = Vector2(47, -5)
@@ -88,7 +88,7 @@ texture = ExtResource("5_t8blu")
 
 [node name="RArm2" type="Node2D" parent="Root/Body/Top/RArm1"]
 position = Vector2(102, -7)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.25, 1.25)
 
 [node name="RHand" type="Polygon2D" parent="Root/Body/Top/RArm1/RArm2"]
 visible = false
@@ -102,8 +102,8 @@ scale = Vector2(-0.4, 0.4)
 texture = ExtResource("6_42j7f")
 
 [node name="LArm1" type="Node2D" parent="Root/Body/Top"]
-position = Vector2(-62, -140)
-scale = Vector2(1.1, 1.1)
+position = Vector2(-101, -140)
+scale = Vector2(1.2, 1.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Root/Body/Top/LArm1"]
 position = Vector2(-49, -7)
@@ -113,7 +113,7 @@ texture = ExtResource("5_t8blu")
 
 [node name="LArm2" type="Node2D" parent="Root/Body/Top/LArm1"]
 position = Vector2(-102, -7)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.25, 1.25)
 
 [node name="LHand" type="Polygon2D" parent="Root/Body/Top/LArm1/LArm2"]
 visible = false
@@ -135,7 +135,7 @@ script = ExtResource("7_lomqj")
 player = NodePath("../../../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Body/Top/LArmCollider"]
-position = Vector2(105, 100)
+position = Vector2(80, 100)
 shape = SubResource("RectangleShape2D_d1ppk")
 
 [node name="RArmCollider" type="Area2D" parent="Root/Body/Top" node_paths=PackedStringArray("player")]
@@ -148,7 +148,7 @@ player = NodePath("../../../..")
 orientation = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Root/Body/Top/RArmCollider"]
-position = Vector2(-103, 101)
+position = Vector2(-80, 101)
 shape = SubResource("RectangleShape2D_d1ppk")
 one_way_collision_margin = 0.0
 
