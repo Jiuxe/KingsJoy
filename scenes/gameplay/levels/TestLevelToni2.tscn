@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://gr4tvf43ye8q"]
+[gd_scene load_steps=22 format=3 uid="uid://gr4tvf43ye8q"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/levels/Level.gd" id="1_5vw3v"]
 [ext_resource type="Texture2D" uid="uid://cxbqgytr8f58q" path="res://assets/sprites/cortina_2.png" id="2_bwj0h"]
@@ -15,7 +15,8 @@
 [ext_resource type="Script" path="res://scenes/gameplay/levels/scripts/DeathCondition.gd" id="7_2wjmk"]
 [ext_resource type="Texture2D" uid="uid://36c31vok1e6d" path="res://assets/sprites/rubia_no_boca.png" id="8_phogk"]
 [ext_resource type="Texture2D" uid="uid://c5fop5bgldp5o" path="res://assets/sprites/rubia_boca.png" id="9_ndnrw"]
-[ext_resource type="PackedScene" uid="uid://ba37jlwwam8wr" path="res://scenes/NPCs/BackRow.tscn" id="16_vrboi"]
+[ext_resource type="PackedScene" path="res://scenes/NPCs/BackRow.tscn" id="16_vrboi"]
+[ext_resource type="AudioStream" uid="uid://imi6vf3a2n3b" path="res://assets/music/music_in_game.wav" id="17_pagwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)
@@ -155,6 +156,11 @@ position = Vector2(0, 666)
 [node name="FrontRow2" parent="." instance=ExtResource("16_vrboi")]
 position = Vector2(1205, 701)
 scale = Vector2(-1, 1)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_pagwm")
+autoplay = true
+attenuation = 2.07053
 
 [connection signal="body_entered" from="BallFallArea" to="." method="_on_ball_fall_area_body_entered"]
 [connection signal="body_entered" from="BallDespawn" to="." method="_on_ball_despawn_body_entered"]

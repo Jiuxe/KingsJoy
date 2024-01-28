@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhorxka3x50v2"]
 
-[ext_resource type="PackedScene" uid="uid://dlukphxoyolox" path="res://scenes/gameplay/character_controllers/ToniToni.tscn" id="1_b1q5h"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/character_controllers/ToniToni.tscn" id="1_b1q5h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smw2l"]
 size = Vector2(1151, 101)

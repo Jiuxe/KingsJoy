@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://6tve156e62qq"]
+[gd_scene load_steps=7 format=3 uid="uid://6tve156e62qq"]
 
 [ext_resource type="Script" path="res://scenes/menu/end_game.gd" id="1_f84cr"]
 [ext_resource type="Texture2D" uid="uid://d1qdo8ywoftpv" path="res://assets/sprites/fondo_terciopelo_end_game.png" id="2_3ckfx"]
 [ext_resource type="FontFile" uid="uid://da2t6lyf41wty" path="res://assets/fonts/open-sans/open-sans-bold.ttf" id="2_pwgn7"]
 [ext_resource type="Script" path="res://scenes/menu/game_version.gd" id="3_s0l6a"]
 [ext_resource type="Script" path="res://scenes/menu/godot_version.gd" id="4_jiofe"]
+[ext_resource type="AudioStream" uid="uid://boiqjbwriib3" path="res://assets/music/music_end_game.mp3" id="6_qetfg"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -271,6 +272,10 @@ layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
 text = "Developer 3"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qetfg")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
